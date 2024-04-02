@@ -32,11 +32,11 @@
         "hasDataSpecification": {
           "type": "array",
           "description": "Property. Data specification defines the additional attributes an asset may have. RAMI4.0 specification",
-          "items":{
+          "items": {
             "type": "object",
             "properties": {
               "type": {
-                "type":"string",
+                "type": "string",
                 "description": "Property. Link, url or descriptionof the specified data"
               }
             }
@@ -54,8 +54,10 @@
                   "type": "object",
                   "properties": {
                     "type": {
-                      "type":"string",
-                      "enum": ["Asset"],
+                      "type": "string",
+                      "enum": [
+                        "Asset"
+                      ],
                       "description": "Property. Type (description) of the asset"
                     },
                     "local": {
@@ -74,21 +76,11 @@
                       "type": "string",
                       "description": "Property. Type of the Identifier, eg.IRI or IRDI"
                     }
-                  },
-                  "required": [
-                    "type",
-                    "local",
-                    "value",
-                    "index",
-                    "idType"
-                  ]
+                  }
                 }
               ]
             }
-          },
-          "required": [
-            "keys"
-          ]
+          }
         },
         "submodels": {
           "type": "array",
@@ -106,8 +98,10 @@
                       "type": "object",
                       "properties": {
                         "type": {
-                          "type":"string",
-                          "enum": ["Submodel"],
+                          "type": "string",
+                          "enum": [
+                            "Submodel"
+                          ],
                           "description": "Property. Type (description) of the submodel"
                         },
                         "local": {
@@ -126,32 +120,22 @@
                           "type": "string",
                           "description": "Property. Identity information that unambiguously distinguishes one submodel from another one. Can be IRI or IRDI"
                         }
-                      },
-                      "required": [
-                        "type",
-                        "local",
-                        "value",
-                        "index",
-                        "idType"
-                      ]
+                      }
                     }
                   ]
                 }
-              },
-              "required": [
-                "keys"
-              ]
+              }
             }
           ]
         },
         "conceptDictionaries": {
           "type": "array",
           "description": "Property. The Asset itself can also define its own dictionary that contains semantic definitions of its submodel elements. These semantic definitions are called concept descriptions (ConceptDescription or concept dictionary). This array will contain ref ids to RAMI4.0 specific concepts used within this model",
-          "items":{
+          "items": {
             "type": "object",
             "properties": {
               "type": {
-                "type":"string",
+                "type": "string",
                 "description": "Property. Link, url, reference or description of the specified I4.0 concept"
               }
             }
@@ -170,11 +154,7 @@
               "format": "uri",
               "description": "Property. Identity information that unambiguously distinguishes one AAS from another one. RAMI4.0 environmet "
             }
-          },
-          "required": [
-            "idType",
-            "id"
-          ]
+          }
         },
         "administration": {
           "type": "object",
@@ -188,11 +168,7 @@
               "type": "string",
               "description": "Property. AAS Revision number is the number in line with release of specification"
             }
-          },
-          "required": [
-            "version",
-            "revision"
-          ]
+          }
         },
         "idShort": {
           "type": "string",
@@ -210,10 +186,7 @@
               "type": "string",
               "description": "Property. Description of the referenced property of the item"
             }
-          },
-          "required": [
-            "name"
-          ]
+          }
         },
         "descriptions": {
           "type": "array",
@@ -230,29 +203,11 @@
                   "type": "string",
                   "description": "Property. The Description text is filled here"
                 }
-              },
-              "required": [
-                "language",
-                "text"
-              ]
+              }
             }
           ]
         }
-      },
-      "required": [
-        "type",
-        "refI4AssetId",
-        "hasDataSpecification",
-        "asset",
-        "submodels",
-        "conceptDictionaries",
-        "identification",
-        "administration",
-        "idShort",
-        "category",
-        "modelType",
-        "descriptions"
-      ]
+      }
     }
   ],
   "required": [
