@@ -1,0 +1,3 @@
+/* (Beta) Export of data model I4Asset of the subject dataModel.AAS for a PostgreSQL database. Pending translation of enumerations and multityped attributes */
+CREATE TYPE kind_type AS ENUM ('Instance');CREATE TYPE I4Asset_type AS ENUM ('I4Asset');
+CREATE TABLE I4Asset (address JSON, administration JSON, alternateName TEXT, areaServed TEXT, assetIdentificationModelRef JSON, billOfMaterialRef JSON, category TEXT, dataProvider TEXT, dateCreated TIMESTAMP, dateModified TIMESTAMP, description TEXT, descriptions JSON, hasDataSpecification JSON, id TEXT PRIMARY KEY, idShort TEXT, identification JSON, kind kind_type, location JSON, modelType JSON, name TEXT, owner JSON, seeAlso JSON, source TEXT, type I4Asset_type);

@@ -1,5 +1,5 @@
-I4AAS:
-  description: 'Based on IDTA-01001-3-0, describes a generic Asset Administration Shell - AAS - tree, component of the RAMI4.0'
+I4Asset:
+  description: 'Based on IDTA-01001-3-0, defines the Asset -instance- linked to a given AAS a generic Asset Administration Shell - AAS -  component of the RAMI4.0'
   properties:
     address:
       description: The mailing address
@@ -55,7 +55,7 @@ I4AAS:
         model: https://schema.org/address
         type: Property
     administration:
-      description: AAS administration information
+      description: Instance administration information
       properties:
         revision:
           description: AAS Revision number is the number in line with release of specification
@@ -63,7 +63,7 @@ I4AAS:
           x-ngsi:
             type: Property
         version:
-          description: AAS Version number is the number in line with release of specification
+          description: AAS version number is the number in line with release of specification
           type: string
           x-ngsi:
             type: Property
@@ -84,29 +84,62 @@ I4AAS:
       x-ngsi:
         model: https://schema.org/Text
         type: Property
-    asset:
-      description: The Asset descripton is filled here
+    assetIdentificationModelRef:
+      description: 'An asset typically may be represented by several different identification properties like for example the serial number, its RFID code etc. Such local identification properties are defined in the asset identification submodel'
       properties:
         keys:
-          description: Keys for the Asset
+          description: keys for the asset instance
           items:
             - properties:
                 idType:
-                  description: 'Property. Type of the Identifier, eg.IRI or IRDI'
+                  description: Property. idType of the item
                   type: string
                 index:
-                  description: Property. Index encodes the position in the original sequence
+                  description: Property. Integer related to the item
                   type: integer
                 local:
-                  description: Property. It defines whether the asset is created locally or globally
+                  description: Property. True if this is local item. False if not
                   type: boolean
                 type:
-                  description: Property. Type (description) of the asset
-                  enum:
-                    - Asset
                   type: string
                 value:
-                  description: Property. Here comes the id pointing to the definition of asset
+                  description: Property. Value of the item
+                  type: string
+              required:
+                - type
+                - local
+                - value
+                - index
+                - idType
+              type: object
+          type: array
+          x-ngsi:
+            type: Property
+      required:
+        - keys
+      type: object
+      x-ngsi:
+        type: Property
+    billOfMaterialRef:
+      description: A complex asset is composed out of other entities and assets. These entities and assets being part of the asset are specified in the bill of material
+      properties:
+        keys:
+          description: Keys for the Semantic ID
+          items:
+            - properties:
+                idType:
+                  description: Property. idType of the item
+                  type: string
+                index:
+                  description: Property. Order of the item
+                  type: integer
+                local:
+                  description: Property. Whether if the item is local
+                  type: boolean
+                type:
+                  type: string
+                value:
+                  description: Property. Value of the item
                   type: string
               required:
                 - type
@@ -124,21 +157,8 @@ I4AAS:
       x-ngsi:
         type: Property
     category:
-      description: The category is a value that gives further meta information w.r.t. to the class of the element
+      description: The category is a value that gives further meta information w.r.t. to the class of the AAS
       type: string
-      x-ngsi:
-        type: Property
-    conceptDictionaries:
-      description: The Asset itself can also define its own dictionary that contains semantic definitions of its submodel elements. These semantic definitions are called concept descriptions (ConceptDescription or concept dictionary). This array will contain ref ids to RAMI4.0 specific concepts used within this model
-      items:
-        properties:
-          type:
-            description: 'Link, url, reference or description of the specified I4.0 concept'
-            type: string
-            x-ngsi:
-              type: Property
-        type: object
-      type: array
       x-ngsi:
         type: Property
     dataProvider:
@@ -164,7 +184,7 @@ I4AAS:
       x-ngsi:
         type: Property
     descriptions:
-      description: For adding detailed knowldedge about the AAS in different languages
+      description: For adding detailed knowldedge in different languages
       items:
         properties:
           language:
@@ -173,7 +193,7 @@ I4AAS:
             x-ngsi:
               type: Property
           text:
-            description: The Description text is filled here
+            description: Add the description text here
             type: string
             x-ngsi:
               type: Property
@@ -215,21 +235,21 @@ I4AAS:
       x-ngsi:
         type: Property
     idShort:
-      description: short id is the (short) name of the ASSET ADMINISTRATION SHELL
+      description: Short id (name) of the RAMI Instance
       type: string
       x-ngsi:
         type: Property
     identification:
-      description: Identification of the AAS for the asset. RAMI4.0 environment
+      description: Identification of the AAS -Asset- Instance object
       properties:
         id:
-          description: 'Identity information that unambiguously distinguishes one AAS from another one. RAMI4.0 environmet '
+          description: Identity information that unambiguously distinguishes one RAMI Instance from another one
           format: uri
           type: string
           x-ngsi:
             type: Property
         idType:
-          description: 'Type of the Identifier, eg.IRI or IRDI'
+          description: 'Type of the Identifier, eg.IRI or IRD'
           type: string
           x-ngsi:
             type: Property
@@ -237,6 +257,13 @@ I4AAS:
         - idType
         - id
       type: object
+      x-ngsi:
+        type: Property
+    kind:
+      description: Kind of the Schema. This is restricted to Instance
+      enum:
+        - Instance
+      type: string
       x-ngsi:
         type: Property
     location:
@@ -405,10 +432,10 @@ I4AAS:
       x-ngsi:
         type: GeoProperty
     modelType:
-      description: 'For the distinction of ''type'' and ''instance'', the term ''kind'' is used'
+      description: Instance model type according to IDTA
       properties:
         name:
-          description: Description of the referenced property of the item
+          description: Type of the referenced item
           type: string
           x-ngsi:
             type: Property
@@ -444,12 +471,6 @@ I4AAS:
       type: array
       x-ngsi:
         type: Property
-    refI4AssetId:
-      description: References the root Asset linked to this AAS
-      format: uri
-      type: string
-      x-ngsi:
-        type: Relationship
     seeAlso:
       description: list of uri pointing to additional resources about the item
       oneOf:
@@ -467,64 +488,10 @@ I4AAS:
       type: string
       x-ngsi:
         type: Property
-    submodels:
-      description: 'AAS contains complex set of informations, submodels provide a separate category for this complex data'
-      items:
-        description: It clearly identify the attribute of data
-        properties:
-          keys:
-            description: keys for the submodel
-            items:
-              properties:
-                idType:
-                  description: Identity information that unambiguously distinguishes one submodel from another one. Can be IRI or IRDI
-                  type: string
-                  x-ngsi:
-                    type: Property
-                index:
-                  description: Index encodes the position in the original sequence
-                  type: number
-                  x-ngsi:
-                    type: Property
-                local:
-                  description: It defines whether the submodel is created locally or globally
-                  type: boolean
-                  x-ngsi:
-                    type: Property
-                type:
-                  description: Type (description) of the submodel
-                  enum:
-                    - Submodel
-                  type: string
-                  x-ngsi:
-                    type: Property
-                value:
-                  description: The id of the submodel pointing to the definition of the Submodel
-                  type: string
-                  x-ngsi:
-                    type: Property
-              required:
-                - type
-                - local
-                - value
-                - index
-                - idType
-              type: object
-            type: array
-            x-ngsi:
-              type: Property
-        required:
-          - keys
-        type: object
-        x-ngsi:
-          type: Property
-      type: array
-      x-ngsi:
-        type: Property
     type:
-      description: It has to be RAMI4.0 I4AAS NGSI Entity type to represent a RAMI4.0 AAS Digital Twin
+      description: It has to be RAMI4.0 I4Asset NGSI Entity type
       enum:
-        - I4AAS
+        - I4Asset
       type: string
       x-ngsi:
         type: Property
@@ -533,8 +500,8 @@ I4AAS:
     - type
   type: object
   x-derived-from: https://industrialdigitaltwin.org/en/wp-content/uploads/sites/2/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf
-  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2024 Contributors to Smart Data Models Program'
-  x-license-url: https://github.com/smart-data-models/dataModel.AAS/blob/master/I4AAS/LICENSE.md
-  x-model-schema: https://smart-data-models.github.io/dataModel.AAS/I4AAS/schema.json
+  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2023 Contributors to Smart Data Models Program'
+  x-license-url: https://github.com/smart-data-models/dataModel.AAS/blob/master/I4Asset/LICENSE.md
+  x-model-schema: https://smart-data-models.github.io/dataModel.AAS/I4Asset/schema.json
   x-model-tags: Corosect
   x-version: 0.0.1

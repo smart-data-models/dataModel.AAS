@@ -1,0 +1,3 @@
+/* (Beta) Export of data model I4AAS of the subject dataModel.AAS for a PostgreSQL database. Pending translation of enumerations and multityped attributes */
+CREATE TYPE I4AAS_type AS ENUM ('I4AAS');
+CREATE TABLE I4AAS (address JSON, administration JSON, alternateName TEXT, areaServed TEXT, asset JSON, category TEXT, conceptDictionaries JSON, dataProvider TEXT, dateCreated TIMESTAMP, dateModified TIMESTAMP, description TEXT, descriptions JSON, hasDataSpecification JSON, id TEXT PRIMARY KEY, idShort TEXT, identification JSON, location JSON, modelType JSON, name TEXT, owner JSON, refI4AssetId TEXT, seeAlso JSON, source TEXT, submodels JSON, type I4AAS_type);
