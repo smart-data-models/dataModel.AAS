@@ -27,11 +27,11 @@
         "hasDataSpecification": {
           "type": "array",
           "description": "Property. Data specification defines the additional attributes an asset may have. RAMI4.0 specification",
-          "items":{
+          "items": {
             "type": "object",
             "properties": {
               "type": {
-                "type":"string",
+                "type": "string",
                 "description": "Property. Link, url or descriptionof the specified data"
               }
             }
@@ -67,21 +67,11 @@
                       "type": "string",
                       "description": "Property. idType of the item"
                     }
-                  },
-                  "required": [
-                    "type",
-                    "local",
-                    "value",
-                    "index",
-                    "idType"
-                  ]
+                  }
                 }
               ]
             }
-          },
-          "required": [
-            "keys"
-          ]
+          }
         },
         "billOfMaterialRef": {
           "type": "object",
@@ -96,38 +86,28 @@
                   "properties": {
                     "type": {
                       "type": "string"
-                },
-                "local": {
-                  "type": "boolean",
-                  "description": "Property. Whether if the item is local"
-                },
-                "value": {
-                  "type": "string",
-                  "description": "Property. Value of the item"
-                },
-                "index": {
-                  "type": "integer",
-                  "description": "Property. Order of the item"
-                },
-                "idType": {
-                  "type": "string",
-                  "description": "Property. idType of the item"
+                    },
+                    "local": {
+                      "type": "boolean",
+                      "description": "Property. Whether if the item is local"
+                    },
+                    "value": {
+                      "type": "string",
+                      "description": "Property. Value of the item"
+                    },
+                    "index": {
+                      "type": "integer",
+                      "description": "Property. Order of the item"
+                    },
+                    "idType": {
+                      "type": "string",
+                      "description": "Property. idType of the item"
+                    }
+                  }
                 }
-              },
-              "required": [
-                "type",
-                "local",
-                "value",
-                "index",
-                "idType"
               ]
             }
-          ]
-        }
-      },
-      "required": [
-        "keys"
-      ]
+          }
         },
         "identification": {
           "type": "object",
@@ -142,11 +122,7 @@
               "format": "uri",
               "description": "Property. Identity information that unambiguously distinguishes one RAMI Instance from another one"
             }
-          },
-          "required": [
-            "idType",
-            "id"
-          ]
+          }
         },
         "administration": {
           "type": "object",
@@ -160,11 +136,7 @@
               "type": "string",
               "description": "Property. AAS Revision number is the number in line with release of specification"
             }
-          },
-          "required": [
-            "version",
-            "revision"
-          ]
+          }
         },
         "idShort": {
           "type": "string",
@@ -182,10 +154,7 @@
               "type": "string",
               "description": "Property. Type of the referenced item"
             }
-          },
-          "required": [
-            "name"
-          ]
+          }
         },
         "kind": {
           "type": "string",
@@ -209,28 +178,11 @@
                   "type": "string",
                   "description": "Property. Add the description text here"
                 }
-              },
-              "required": [
-                "language",
-                "text"
-              ]
+              }
+            }
+          ]
         }
-      ]
-        }
-      },
-      "required": [
-        "type",
-        "hasDataSpecification",
-        "assetIdentificationModelRef",
-        "billOfMaterialRef",
-        "identification",
-        "administration",
-        "idShort",
-        "category",
-        "modelType",
-        "kind",
-        "descriptions"
-      ]
+      }
     }
   ],
   "required": [
