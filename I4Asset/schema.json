@@ -32,7 +32,7 @@
             "properties": {
               "type": {
                 "type": "string",
-                "description": "Property. Link, url or descriptionof the specified data"
+                "description": "Property. Link, url or description of the specified data"
               }
             }
           }
@@ -165,7 +165,7 @@
         },
         "descriptions": {
           "type": "array",
-          "description": "Property. For adding detailed knowldedge in different languages",
+          "description": "Property. For adding detailed knowledge in different languages",
           "items": [
             {
               "type": "object",

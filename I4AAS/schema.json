@@ -37,14 +37,14 @@
             "properties": {
               "type": {
                 "type": "string",
-                "description": "Property. Link, url or descriptionof the specified data"
+                "description": "Property. Link, url or description of the specified data"
               }
             }
           }
         },
         "asset": {
           "type": "object",
-          "description": "Property. The Asset descripton is filled here",
+          "description": "Property. The Asset description is filled here",
           "properties": {
             "keys": {
               "type": "array",
@@ -84,7 +84,7 @@
         },
         "submodels": {
           "type": "array",
-          "description": "Property. AAS contains complex set of informations, submodels provide a separate category for this complex data",
+          "description": "Property. AAS contains complex set of information, submodels provide a separate category for this complex data",
           "items": [
             {
               "type": "object",
@@ -152,7 +152,7 @@
             "id": {
               "type": "string",
               "format": "uri",
-              "description": "Property. Identity information that unambiguously distinguishes one AAS from another one. RAMI4.0 environmet "
+              "description": "Property. Identity information that unambiguously distinguishes one AAS from another one. RAMI4.0 environment "
             }
           }
         },
@@ -190,7 +190,7 @@
         },
         "descriptions": {
           "type": "array",
-          "description": "Property. For adding detailed knowldedge about the AAS in different languages",
+          "description": "Property. For adding detailed knowledge about the AAS in different languages",
           "items": [
             {
               "type": "object",
