@@ -7,16 +7,33 @@
 [Dokument automatisch generiert](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
 <!-- /15-License -->  
 <!-- 20-Description -->  
+Globale Beschreibung: **Basierend auf IDTA-01001-3-0, definiert die Asset-Instanz, die mit einer bestimmten AAS verknüpft ist, eine generische Asset Administration Shell - AAS - Komponente des RAMI4.0**  
+Version: 0.0.1  
 <!-- /20-Description -->  
 <!-- 30-PropertiesList -->  
 
 ## Liste der Eigenschaften  
 
 <sup><sub>[*] Wenn es für ein Attribut keinen Typ gibt, kann es mehrere Typen oder verschiedene Formate/Muster haben</sub></sup>.  
-<!-- /30-PropertiesList -->  
+- `address[object]`: Die Postanschrift  . Model: [https://schema.org/address](https://schema.org/address)	- `addressCountry[string]`: Das Land. Zum Beispiel, Spanien  . Model: [https://schema.org/addressCountry](https://schema.org/addressCountry)  
+	- `addressLocality[string]`: Die Ortschaft, in der sich die Adresse befindet, und die in der Region liegt  . Model: [https://schema.org/addressLocality](https://schema.org/addressLocality)  
+	- `addressRegion[string]`: Die Region, in der sich der Ort befindet, und die auf dem Land liegt  . Model: [https://schema.org/addressRegion](https://schema.org/addressRegion)  
+	- `district[string]`: Ein Bezirk ist eine Art von Verwaltungseinheit, die in einigen Ländern von der lokalen Regierung verwaltet wird.    
+	- `postOfficeBoxNumber[string]`: Die Postfachnummer für Postfachadressen. Zum Beispiel, 03578  . Model: [https://schema.org/postOfficeBoxNumber](https://schema.org/postOfficeBoxNumber)  
+	- `postalCode[string]`: Die Postleitzahl. Zum Beispiel, 24004  . Model: [https://schema.org/https://schema.org/postalCode](https://schema.org/https://schema.org/postalCode)  
+	- `streetAddress[string]`: Die Straßenanschrift  . Model: [https://schema.org/streetAddress](https://schema.org/streetAddress)  
+	- `streetNr[string]`: Nummer zur Identifizierung eines bestimmten Grundstücks an einer öffentlichen Straße    
+- `administration[object]`: Informationen zur Instanzverwaltung  	- `revision[string]`: Die AAS-Revisionsnummer ist die Nummer, die der Veröffentlichung der Spezifikation entspricht.    
+	- `version[string]`: Die AAS-Versionsnummer ist die Nummer, die der Veröffentlichung der Spezifikation entspricht.    
+- `alternateName[string]`: Ein alternativer Name für diesen Artikel  - `areaServed[string]`: Das geografische Gebiet, in dem eine Dienstleistung oder ein angebotener Artikel erbracht wird  . Model: [https://schema.org/Text](https://schema.org/Text)- `assetIdentificationModelRef[object]`: Ein Wirtschaftsgut kann in der Regel durch verschiedene Identifizierungseigenschaften wie z. B. die Seriennummer, seinen RFID-Code usw. dargestellt werden. Solche lokalen Identifikationseigenschaften werden im Teilmodell "Asset-Identifikation" definiert  	- `keys[array]`: Schlüssel für die Asset-Instanz    
+- `billOfMaterialRef[object]`: Ein komplexes Wirtschaftsgut setzt sich aus anderen Einheiten und Wirtschaftsgütern zusammen. Diese Einheiten und Vermögenswerte, die Teil der Anlage sind, werden in der Stückliste angegeben  	- `keys[array]`: Schlüssel für die Semantische ID    
+- `category[string]`: Die Kategorie ist ein Wert, der weitere Metainformationen über die Klasse des AAS enthält  - `dataProvider[string]`: Eine Folge von Zeichen zur Identifizierung des Anbieters der harmonisierten Dateneinheit  - `dateCreated[date-time]`: Zeitstempel der Entitätserstellung. Dieser wird normalerweise von der Speicherplattform zugewiesen  - `dateModified[date-time]`: Zeitstempel der letzten Änderung der Entität. Dieser wird in der Regel von der Speicherplattform vergeben  - `description[string]`: Eine Beschreibung dieses Artikels  - `descriptions[array]`: Zum Hinzufügen detaillierter Kenntnisse in verschiedenen Sprachen  - `hasDataSpecification[array]`: Die Datenspezifikation definiert die zusätzlichen Attribute, die ein Asset haben kann. RAMI4.0 Spezifikation  - `id[*]`: Eindeutiger Bezeichner der Entität  - `idShort[string]`: Kurze ID (Name) der RAMI-Instanz  - `identification[object]`: Identifizierung des Objekts AAS -Asset- Instance  	- `id[uri]`: Identitätsinformationen, die eine RAMI-Instanz eindeutig von einer anderen unterscheiden    
+	- `idType[string]`: Typ des Identifikators, z. B. IRI oder IRD    
+- `kind[string]`: Art des Schemas. Dies ist auf die Instanz beschränkt  - `location[*]`: Geojson-Referenz auf das Element. Es kann Punkt, LineString, Polygon, MultiPoint, MultiLineString oder MultiPolygon sein  - `modelType[object]`: Instanzmodelltyp nach IDTA  	- `name[string]`: Typ des referenzierten Artikels    
+- `name[string]`: Der Name dieses Artikels  - `owner[array]`: Eine Liste mit einer JSON-kodierten Zeichenfolge, die auf die eindeutigen Kennungen der Eigentümer verweist  - `seeAlso[*]`: Liste von URLs, die auf zusätzliche Ressourcen zu dem Artikel verweisen  - `source[string]`: Eine Folge von Zeichen, die die ursprüngliche Quelle der Entitätsdaten als URL angibt. Empfohlen wird der vollständig qualifizierte Domänenname des Quellanbieters oder die URL des Quellobjekts.  - `type[string]`: Es muss ein RAMI4.0 I4Asset NGSI Entitätstyp sein  <!-- /30-PropertiesList -->  
 <!-- 35-RequiredProperties -->  
 Erforderliche Eigenschaften  
-- Keine erforderlichen Eigenschaften  <!-- /35-RequiredProperties -->  
+- `id`  - `type`  <!-- /35-RequiredProperties -->  
 <!-- 40-NotesYaml -->  
 <!-- /40-NotesYaml -->  
 <!-- 50-DataModelHeader -->  
@@ -95,9 +112,6 @@ I4Asset:
           type: string    
           x-ngsi:    
             type: Property    
-      required:    
-        - version    
-        - revision    
       type: object    
       x-ngsi:    
         type: Property    
@@ -133,18 +147,10 @@ I4Asset:
                 value:    
                   description: Property. Value of the item    
                   type: string    
-              required:    
-                - type    
-                - local    
-                - value    
-                - index    
-                - idType    
               type: object    
           type: array    
           x-ngsi:    
             type: Property    
-      required:    
-        - keys    
       type: object    
       x-ngsi:    
         type: Property    
@@ -169,18 +175,10 @@ I4Asset:
                 value:    
                   description: Property. Value of the item    
                   type: string    
-              required:    
-                - type    
-                - local    
-                - value    
-                - index    
-                - idType    
               type: object    
           type: array    
           x-ngsi:    
             type: Property    
-      required:    
-        - keys    
       type: object    
       x-ngsi:    
         type: Property    
@@ -212,7 +210,7 @@ I4Asset:
       x-ngsi:    
         type: Property    
     descriptions:    
-      description: For adding detailed knowldedge in different languages    
+      description: For adding detailed knowledge in different languages    
       items:    
         properties:    
           language:    
@@ -225,9 +223,6 @@ I4Asset:
             type: string    
             x-ngsi:    
               type: Property    
-        required:    
-          - language    
-          - text    
         type: object    
       type: array    
       x-ngsi:    
@@ -237,7 +232,7 @@ I4Asset:
       items:    
         properties:    
           type:    
-            description: 'Link, url or descriptionof the specified data'    
+            description: 'Link, url or description of the specified data'    
             type: string    
             x-ngsi:    
               type: Property    
@@ -281,9 +276,6 @@ I4Asset:
           type: string    
           x-ngsi:    
             type: Property    
-      required:    
-        - idType    
-        - id    
       type: object    
       x-ngsi:    
         type: Property    
@@ -467,8 +459,6 @@ I4Asset:
           type: string    
           x-ngsi:    
             type: Property    
-      required:    
-        - name    
       type: object    
       x-ngsi:    
         type: Property    
@@ -528,7 +518,7 @@ I4Asset:
     - type    
   type: object    
   x-derived-from: https://industrialdigitaltwin.org/en/wp-content/uploads/sites/2/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf    
-  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2023 Contributors to Smart Data Models Program'    
+  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2024 Contributors to Smart Data Models Program'    
   x-license-url: https://github.com/smart-data-models/dataModel.AAS/blob/master/I4Asset/LICENSE.md    
   x-model-schema: https://smart-data-models.github.io/dataModel.AAS/I4Asset/schema.json    
   x-model-tags: Corosect    
