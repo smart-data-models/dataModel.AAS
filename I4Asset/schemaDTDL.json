@@ -103,7 +103,7 @@
                 "@type": "Array",
                 "elementSchema": "object"
             },
-            "comment": "For adding detailed knowldedge in different languages",
+            "comment": "For adding detailed knowledge in different languages",
             "displayName": "descriptions"
         },
         {

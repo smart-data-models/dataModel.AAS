@@ -67,9 +67,6 @@ I4Asset:
           type: string
           x-ngsi:
             type: Property
-      required:
-        - version
-        - revision
       type: object
       x-ngsi:
         type: Property
@@ -105,18 +102,10 @@ I4Asset:
                 value:
                   description: Property. Value of the item
                   type: string
-              required:
-                - type
-                - local
-                - value
-                - index
-                - idType
               type: object
           type: array
           x-ngsi:
             type: Property
-      required:
-        - keys
       type: object
       x-ngsi:
         type: Property
@@ -141,18 +130,10 @@ I4Asset:
                 value:
                   description: Property. Value of the item
                   type: string
-              required:
-                - type
-                - local
-                - value
-                - index
-                - idType
               type: object
           type: array
           x-ngsi:
             type: Property
-      required:
-        - keys
       type: object
       x-ngsi:
         type: Property
@@ -184,7 +165,7 @@ I4Asset:
       x-ngsi:
         type: Property
     descriptions:
-      description: For adding detailed knowldedge in different languages
+      description: For adding detailed knowledge in different languages
       items:
         properties:
           language:
@@ -197,9 +178,6 @@ I4Asset:
             type: string
             x-ngsi:
               type: Property
-        required:
-          - language
-          - text
         type: object
       type: array
       x-ngsi:
@@ -209,7 +187,7 @@ I4Asset:
       items:
         properties:
           type:
-            description: 'Link, url or descriptionof the specified data'
+            description: 'Link, url or description of the specified data'
             type: string
             x-ngsi:
               type: Property
@@ -253,9 +231,6 @@ I4Asset:
           type: string
           x-ngsi:
             type: Property
-      required:
-        - idType
-        - id
       type: object
       x-ngsi:
         type: Property
@@ -439,8 +414,6 @@ I4Asset:
           type: string
           x-ngsi:
             type: Property
-      required:
-        - name
       type: object
       x-ngsi:
         type: Property
@@ -500,7 +473,7 @@ I4Asset:
     - type
   type: object
   x-derived-from: https://industrialdigitaltwin.org/en/wp-content/uploads/sites/2/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf
-  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2023 Contributors to Smart Data Models Program'
+  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2024 Contributors to Smart Data Models Program'
   x-license-url: https://github.com/smart-data-models/dataModel.AAS/blob/master/I4Asset/LICENSE.md
   x-model-schema: https://smart-data-models.github.io/dataModel.AAS/I4Asset/schema.json
   x-model-tags: Corosect

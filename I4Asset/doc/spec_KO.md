@@ -7,16 +7,33 @@
 [문서 자동 생성](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
 <!-- /15-License -->  
 <!-- 20-Description -->  
+글로벌 설명: **IDTA-01001-3-0에 기반하여, 지정된 AAS에 연결된 자산 -인스턴스-를 RAMI4.0의 일반 자산 관리 셸 - AAS - 구성 요소로 정의합니다**.  
+버전: 0.0.1  
 <!-- /20-Description -->  
 <!-- 30-PropertiesList -->  
 
 ## 속성 목록  
 
 <sup><sub>[*] 속성에 유형이 없는 것은 여러 유형 또는 다른 형식/패턴을 가질 수 있기 때문입니다</sub></sup>.  
-<!-- /30-PropertiesList -->  
+- `address[object]`: 우편 주소  . Model: [https://schema.org/address](https://schema.org/address)	- `addressCountry[string]`: 국가. 예를 들어, 스페인  . Model: [https://schema.org/addressCountry](https://schema.org/addressCountry)  
+	- `addressLocality[string]`: 도로명 주소가 있는 지역 및 해당 지역 내 지역  . Model: [https://schema.org/addressLocality](https://schema.org/addressLocality)  
+	- `addressRegion[string]`: 해당 지역이 위치한 지역과 해당 국가의 지역  . Model: [https://schema.org/addressRegion](https://schema.org/addressRegion)  
+	- `district[string]`: 지구는 일부 국가에서는 지방 정부에서 관리하는 행정 구역의 일종입니다.    
+	- `postOfficeBoxNumber[string]`: 사서함 주소의 우체국 사서함 번호입니다. 예: 03578  . Model: [https://schema.org/postOfficeBoxNumber](https://schema.org/postOfficeBoxNumber)  
+	- `postalCode[string]`: 우편 번호입니다. 예: 24004  . Model: [https://schema.org/https://schema.org/postalCode](https://schema.org/https://schema.org/postalCode)  
+	- `streetAddress[string]`: 거리 주소  . Model: [https://schema.org/streetAddress](https://schema.org/streetAddress)  
+	- `streetNr[string]`: 공공 도로의 특정 건물을 식별하는 번호    
+- `administration[object]`: 인스턴스 관리 정보  	- `revision[string]`: AAS 개정 번호는 사양 릴리스에 따른 번호입니다.    
+	- `version[string]`: AAS 버전 번호는 사양 릴리스에 따른 번호입니다.    
+- `alternateName[string]`: 이 항목의 대체 이름  - `areaServed[string]`: 서비스 또는 제공 품목이 제공되는 지리적 영역  . Model: [https://schema.org/Text](https://schema.org/Text)- `assetIdentificationModelRef[object]`: 자산은 일반적으로 일련 번호, RFID 코드 등과 같은 여러 가지 식별 속성으로 표현될 수 있습니다. 이러한 로컬 식별 속성은 자산 식별 하위 모델에 정의됩니다.  	- `keys[array]`: 에셋 인스턴스에 대한 키    
+- `billOfMaterialRef[object]`: 복합 자산은 다른 엔티티와 자산으로 구성됩니다. 자산의 일부인 이러한 엔티티와 자산은 자재 명세서에 명시되어 있습니다.  	- `keys[array]`: 시맨틱 ID의 키    
+- `category[string]`: 카테고리는 AAS의 클래스에 대한 추가 메타 정보를 제공하는 값입니다.  - `dataProvider[string]`: 조화된 데이터 엔티티의 공급자를 식별하는 일련의 문자  - `dateCreated[date-time]`: 엔티티 생성 타임스탬프. 이는 일반적으로 스토리지 플랫폼에서 할당합니다.  - `dateModified[date-time]`: 엔티티의 마지막 수정 타임스탬프입니다. 이는 일반적으로 스토리지 플랫폼에서 할당합니다.  - `description[string]`: 이 항목에 대한 설명  - `descriptions[array]`: 다른 언어로 된 자세한 지식 추가하기  - `hasDataSpecification[array]`: 데이터 사양은 자산이 가질 수 있는 추가 속성을 정의합니다. RAMI4.0 사양  - `id[*]`: 엔티티의 고유 식별자  - `idShort[string]`: RAMI 인스턴스의 짧은 ID(이름)  - `identification[object]`: AAS -자산- 인스턴스 개체 식별  	- `id[uri]`: 하나의 RAMI 인스턴스를 다른 인스턴스와 명확하게 구분하는 신원 정보    
+	- `idType[string]`: 식별자 유형(예: IRI 또는 IRD)    
+- `kind[string]`: 스키마의 종류. 이것은 인스턴스  - `location[*]`: 항목에 대한 지오숀 참조입니다. 포인트, 라인스트링, 다각형, 멀티포인트, 멀티라인스트링 또는 멀티폴리곤일 수 있습니다.  - `modelType[object]`: IDTA에 따른 인스턴스 모델 유형  	- `name[string]`: 참조된 항목의 유형    
+- `name[string]`: 이 항목의 이름  - `owner[array]`: 소유자의 고유 ID를 참조하는 JSON 인코딩된 문자 시퀀스가 포함된 목록입니다.  - `seeAlso[*]`: 항목에 대한 추가 리소스를 가리키는 URL 목록  - `source[string]`: 엔티티 데이터의 원본 소스를 URL로 제공하는 문자 시퀀스입니다. 소스 공급자의 정규화된 도메인 이름 또는 소스 개체에 대한 URL을 사용하는 것이 좋습니다.  - `type[string]`: RAMI4.0 I4Asset NGSI 엔티티 유형이어야 합니다.  <!-- /30-PropertiesList -->  
 <!-- 35-RequiredProperties -->  
 필수 속성  
-- 필수 속성 없음  <!-- /35-RequiredProperties -->  
+- `id`  - `type`  <!-- /35-RequiredProperties -->  
 <!-- 40-NotesYaml -->  
 <!-- /40-NotesYaml -->  
 <!-- 50-DataModelHeader -->  
@@ -95,9 +112,6 @@ I4Asset:
           type: string    
           x-ngsi:    
             type: Property    
-      required:    
-        - version    
-        - revision    
       type: object    
       x-ngsi:    
         type: Property    
@@ -133,18 +147,10 @@ I4Asset:
                 value:    
                   description: Property. Value of the item    
                   type: string    
-              required:    
-                - type    
-                - local    
-                - value    
-                - index    
-                - idType    
               type: object    
           type: array    
           x-ngsi:    
             type: Property    
-      required:    
-        - keys    
       type: object    
       x-ngsi:    
         type: Property    
@@ -169,18 +175,10 @@ I4Asset:
                 value:    
                   description: Property. Value of the item    
                   type: string    
-              required:    
-                - type    
-                - local    
-                - value    
-                - index    
-                - idType    
               type: object    
           type: array    
           x-ngsi:    
             type: Property    
-      required:    
-        - keys    
       type: object    
       x-ngsi:    
         type: Property    
@@ -212,7 +210,7 @@ I4Asset:
       x-ngsi:    
         type: Property    
     descriptions:    
-      description: For adding detailed knowldedge in different languages    
+      description: For adding detailed knowledge in different languages    
       items:    
         properties:    
           language:    
@@ -225,9 +223,6 @@ I4Asset:
             type: string    
             x-ngsi:    
               type: Property    
-        required:    
-          - language    
-          - text    
         type: object    
       type: array    
       x-ngsi:    
@@ -237,7 +232,7 @@ I4Asset:
       items:    
         properties:    
           type:    
-            description: 'Link, url or descriptionof the specified data'    
+            description: 'Link, url or description of the specified data'    
             type: string    
             x-ngsi:    
               type: Property    
@@ -281,9 +276,6 @@ I4Asset:
           type: string    
           x-ngsi:    
             type: Property    
-      required:    
-        - idType    
-        - id    
       type: object    
       x-ngsi:    
         type: Property    
@@ -467,8 +459,6 @@ I4Asset:
           type: string    
           x-ngsi:    
             type: Property    
-      required:    
-        - name    
       type: object    
       x-ngsi:    
         type: Property    
@@ -528,7 +518,7 @@ I4Asset:
     - type    
   type: object    
   x-derived-from: https://industrialdigitaltwin.org/en/wp-content/uploads/sites/2/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf    
-  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2023 Contributors to Smart Data Models Program'    
+  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2024 Contributors to Smart Data Models Program'    
   x-license-url: https://github.com/smart-data-models/dataModel.AAS/blob/master/I4Asset/LICENSE.md    
   x-model-schema: https://smart-data-models.github.io/dataModel.AAS/I4Asset/schema.json    
   x-model-tags: Corosect    
