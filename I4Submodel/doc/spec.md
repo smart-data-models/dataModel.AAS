@@ -7,16 +7,32 @@
 [document generated automatically](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
 <!-- /15-License -->  
 <!-- 20-Description -->  
+Global description: **Based on IDTA-01001-3-0, describes a generic submodel component of the RAMI4.0 Asset Administration Shell**  
+version: 0.0.1  
 <!-- /20-Description -->  
 <!-- 30-PropertiesList -->  
 
 ## List of properties  
 
 <sup><sub>[*] If there is not a type in an attribute is because it could have several types or different formats/patterns</sub></sup>  
-<!-- /30-PropertiesList -->  
+- `address[object]`: The mailing address  . Model: [https://schema.org/address](https://schema.org/address)	- `addressCountry[string]`: The country. For example, Spain  . Model: [https://schema.org/addressCountry](https://schema.org/addressCountry)  
+	- `addressLocality[string]`: The locality in which the street address is, and which is in the region  . Model: [https://schema.org/addressLocality](https://schema.org/addressLocality)  
+	- `addressRegion[string]`: The region in which the locality is, and which is in the country  . Model: [https://schema.org/addressRegion](https://schema.org/addressRegion)  
+	- `district[string]`: A district is a type of administrative division that, in some countries, is managed by the local government    
+	- `postOfficeBoxNumber[string]`: The post office box number for PO box addresses. For example, 03578  . Model: [https://schema.org/postOfficeBoxNumber](https://schema.org/postOfficeBoxNumber)  
+	- `postalCode[string]`: The postal code. For example, 24004  . Model: [https://schema.org/https://schema.org/postalCode](https://schema.org/https://schema.org/postalCode)  
+	- `streetAddress[string]`: The street address  . Model: [https://schema.org/streetAddress](https://schema.org/streetAddress)  
+	- `streetNr[string]`: Number identifying a specific property on a public street    
+- `administration[object]`: AAS Submodel administration information  	- `revision[string]`: AAS Revision number is the number in line with release of specification    
+	- `version[string]`: AAS Version number is the number in line with release of specification    
+- `alternateName[string]`: An alternative name for this item  - `areaServed[string]`: The geographic area where a service or offered item is provided  . Model: [https://schema.org/Text](https://schema.org/Text)- `category[string]`: The category is a value that gives further meta information w.r.t. to the class of the element  - `dataProvider[string]`: A sequence of characters identifying the provider of the harmonised data entity  - `dateCreated[date-time]`: Entity creation timestamp. This will usually be allocated by the storage platform  - `dateModified[date-time]`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform  - `description[string]`: A description of this item  - `descriptions[array]`: For adding detailed knowledge about the AAS in different languages  - `hasDataSpecification[array]`: Data specification defines the additional attributes a Submodel may have. RAMI4.0 specification  - `id[*]`: Unique identifier of the entity  - `idShort[string]`: short id is the (short) name of the Submodel within RAMI40 environment  - `identification[object]`: Identification of the Submodel within its AAS. RAMI4.0 environment  	- `id[uri]`: Identity information that unambiguously distinguishes one Submodel from another one -NGSI Id-. RAMI4.0 environment     
+	- `idType[string]`: Type of the Identifier, eg.IRI or IRDI    
+- `kind[string]`: For the distinction of 'type' and 'instance', the term 'kind' is used  - `location[*]`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon  - `modelType[object]`: For the distinction of 'type' and 'instance', the term 'kind' is used.  	- `name[string]`: Property of the item. Usually Submodel is set for this type.    
+- `name[string]`: The name of this item  - `owner[array]`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)  - `qualifiers[array]`: Qualifiers are used if the semantics of the element is the same independent of its qualifiers. It is only the quality or the meaning of the value for the element that differs  - `refI4AASId[string]`: References the root Asset Administration Shell which this Submodel belongs to  - `refI4AssetId[string]`: References the root Asset which this Submodel belongs to  - `seeAlso[*]`: list of uri pointing to additional resources about the item  - `semanticId[object]`: It refer to an external information source, which explains the formulation of the submodel  	- `keys[array]`: Keys for the Semantic ID    
+- `source[string]`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object  - `submodelElements[array]`: Data element which includes the list of Elements -Operations or Commands AND Properties- I4SubmodelElementOperation for RAMI commands / I4SubmodelElementProperty for RAMI Properties  - `type[string]`: It has to be RAMI4.0 I4Submodel NGSI Entity type to represent a RAMI4.0 AAS Digital Twin Submodel component  <!-- /30-PropertiesList -->  
 <!-- 35-RequiredProperties -->  
 Required properties  
-- No required properties  <!-- /35-RequiredProperties -->  
+- `id`  - `type`  <!-- /35-RequiredProperties -->  
 <!-- 40-NotesYaml -->  
 <!-- /40-NotesYaml -->  
 <!-- 50-DataModelHeader -->  
