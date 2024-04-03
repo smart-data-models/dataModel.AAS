@@ -7,16 +7,32 @@
 [documento generato automaticamente](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
 <!-- /15-License -->  
 <!-- 20-Description -->  
+Descrizione globale: **Basato su IDTA-01001-3-0, descrive un componente generico del sottomodello della RAMI4.0 Asset Administration Shell**.  
+versione: 0.0.1  
 <!-- /20-Description -->  
 <!-- 30-PropertiesList -->  
 
 ## Elenco delle proprietà  
 
 <sup><sub>[*] Se non c'è un tipo in un attributo è perché potrebbe avere diversi tipi o diversi formati/modelli</sub></sup>.  
-<!-- /30-PropertiesList -->  
+- `address[object]`: L'indirizzo postale  . Model: [https://schema.org/address](https://schema.org/address)	- `addressCountry[string]`: Il paese. Ad esempio, la Spagna  . Model: [https://schema.org/addressCountry](https://schema.org/addressCountry)  
+	- `addressLocality[string]`: La località in cui si trova l'indirizzo civico e che si trova nella regione  . Model: [https://schema.org/addressLocality](https://schema.org/addressLocality)  
+	- `addressRegion[string]`: La regione in cui si trova la località, e che si trova nel paese  . Model: [https://schema.org/addressRegion](https://schema.org/addressRegion)  
+	- `district[string]`: Un distretto è un tipo di divisione amministrativa che, in alcuni paesi, è gestita dal governo locale.    
+	- `postOfficeBoxNumber[string]`: Il numero di casella postale per gli indirizzi di casella postale. Ad esempio, 03578  . Model: [https://schema.org/postOfficeBoxNumber](https://schema.org/postOfficeBoxNumber)  
+	- `postalCode[string]`: Il codice postale. Ad esempio, 24004  . Model: [https://schema.org/https://schema.org/postalCode](https://schema.org/https://schema.org/postalCode)  
+	- `streetAddress[string]`: L'indirizzo stradale  . Model: [https://schema.org/streetAddress](https://schema.org/streetAddress)  
+	- `streetNr[string]`: Numero che identifica una proprietà specifica su una strada pubblica    
+- `administration[object]`: Informazioni sull'amministrazione del sottomodello AAS  	- `revision[string]`: Il numero di revisione AAS è il numero in linea con il rilascio della specifica.    
+	- `version[string]`: Il numero di versione AAS è il numero in linea con il rilascio della specifica.    
+- `alternateName[string]`: Un nome alternativo per questa voce  - `areaServed[string]`: L'area geografica in cui viene fornito il servizio o l'articolo offerto.  . Model: [https://schema.org/Text](https://schema.org/Text)- `category[string]`: La categoria è un valore che fornisce ulteriori metainformazioni sulla classe dell'elemento.  - `dataProvider[string]`: una sequenza di caratteri che identifica il fornitore dell'entità di dati armonizzata  - `dateCreated[date-time]`: Timestamp di creazione dell'entità. Di solito viene assegnato dalla piattaforma di archiviazione  - `dateModified[date-time]`: Timestamp dell'ultima modifica dell'entità. Di solito viene assegnato dalla piattaforma di archiviazione  - `description[string]`: Descrizione dell'articolo  - `descriptions[array]`: Per aggiungere conoscenze dettagliate sull'AAS in diverse lingue  - `hasDataSpecification[array]`: La specifica dei dati definisce gli attributi aggiuntivi che un Sottomodello può avere. Specifiche RAMI4.0  - `id[*]`: Identificatore univoco dell'entità  - `idShort[string]`: short id è il nome (breve) del sottomodello all'interno dell'ambiente RAMI40  - `identification[object]`: Identificazione del sottomodello all'interno del suo AAS. Ambiente RAMI4.0  	- `id[uri]`: Informazioni sull'identità che distinguono senza ambiguità un Sottomodello da un altro -NGSI Id-. Ambiente RAMI4.0    
+	- `idType[string]`: Tipo di identificatore, ad es. IRI o IRDI    
+- `kind[string]`: Per la distinzione tra "tipo" e "istanza", si usa il termine "tipo".  - `location[*]`: Riferimento geojson all'elemento. Può essere un punto, una stringa di linea, un poligono, un multi-punto, una stringa di linea o un poligono multiplo.  - `modelType[object]`: Per la distinzione tra "tipo" e "istanza" si usa il termine "tipo".  	- `name[string]`: Proprietà dell'elemento. Di solito per questo tipo viene impostato Submodel.    
+- `name[string]`: Il nome di questo elemento  - `owner[array]`: Un elenco contenente una sequenza di caratteri codificata JSON che fa riferimento agli ID univoci dei proprietari.  - `qualifiers[array]`: I qualificatori vengono utilizzati se la semantica dell'elemento è la stessa indipendentemente dai suoi qualificatori. È solo la qualità o il significato del valore dell'elemento a differire.  - `refI4AASId[string]`: Riferimenti all'Asset Administration Shell principale a cui appartiene questo sottomodello  - `refI4AssetId[string]`: Riferimenti all'asset principale a cui appartiene questo sottomodello  - `seeAlso[*]`: elenco di uri che puntano a risorse aggiuntive sull'elemento  - `semanticId[object]`: Fa riferimento a una fonte di informazione esterna, che spiega la formulazione del sottomodello.  	- `keys[array]`: Chiavi per l'ID semantico    
+- `source[string]`: Una sequenza di caratteri che indica la fonte originale dei dati dell'entità come URL. Si consiglia di utilizzare il nome di dominio completamente qualificato del provider di origine o l'URL dell'oggetto di origine.  - `submodelElements[array]`: Elemento di dati che include l'elenco degli elementi -operazioni o comandi e proprietà- I4SubmodelElementOperation per i comandi RAMI / I4SubmodelElementProperty per le proprietà RAMI.  - `type[string]`: Deve essere di tipo Entità RAMI4.0 I4Submodel NGSI per rappresentare un componente del sottomodello RAMI4.0 AAS Digital Twin.  <!-- /30-PropertiesList -->  
 <!-- 35-RequiredProperties -->  
 Proprietà richieste  
-- Nessuna proprietà richiesta  <!-- /35-RequiredProperties -->  
+- `id`  - `type`  <!-- /35-RequiredProperties -->  
 <!-- 40-NotesYaml -->  
 <!-- /40-NotesYaml -->  
 <!-- 50-DataModelHeader -->  
@@ -856,7 +872,7 @@ I4Submodel:
 ```  
 </details>  
 #### I4Submodello NGSI-LD normalizzato Esempio  
-Ecco un esempio di I4Submodel in formato JSON-LD normalizzato. Questo è compatibile con NGSI-LD quando non si utilizzano opzioni e restituisce i dati di contesto di una singola entità.  
+Ecco un esempio di I4Submodel in formato JSON-LD normalizzato. Questo è compatibile con NGSI-LD quando non si usano opzioni e restituisce i dati di contesto di una singola entità.  
 <details><summary><strong>show/hide example</strong></summary>    
 ```json  
 {  
