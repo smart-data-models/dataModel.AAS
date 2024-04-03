@@ -1,0 +1,52 @@
+---
+# Copyleft (c) 2022 Contributors to Smart Data Models initiative
+# 
+
+
+components:
+  schemas: 
+    I4Submodel: 
+      $ref: "https://smart-data-models.github.io/dataModel.AAS/I4Submodel/model.yaml#/I4Submodel"
+info:
+  description:  |
+    Based on IDTA-01001-3-0, describes a generic submodel component of the RAMI4.0 Asset Administration Shell
+  title: I4Submodel
+  version: "0.0.1"
+openapi: "3.0.0"
+
+paths: 
+  /ngsi-ld/v1/entities: 
+    get: 
+      description: "Retrieve a set of entities which matches a specific query from an NGSI-LD system"
+      parameters: 
+        - 
+          in: query
+          name: type
+          required: true
+          schema: 
+            enum: 
+              - I4Submodel
+            type: string
+      responses: 
+        ? "200"
+        : 
+          content: 
+            application/ld+json: 
+              examples: 
+                keyvalues: 
+                  summary: "Key-Values Pairs"
+                  value: 
+                    - 
+                      $ref: "https://smart-data-models.github.io/dataModel.AAS/I4Submodel/examples/example.json"
+                normalized: 
+                  summary: "Normalized NGSI-LD"
+                  value: 
+                    - 
+                      $ref: "https://smart-data-models.github.io/dataModel.AAS/I4Submodel/examples/example-normalized.jsonld"
+          description: OK
+      tags: 
+        - ngsi-ld
+tags: 
+  - 
+    description: "NGSI-LD Linked-data Format"
+    name: ngsi-ld
