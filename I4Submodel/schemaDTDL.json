@@ -1,0 +1,268 @@
+{
+    "@id": "dtmi:com:ngsi-ld:I4Submodel;0",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "comment": "Smart Data Models - RAMI4.0 Asset Administration Shell -AAS- Generic Submodel schema adapted to DTDL from smartdatamodels.org. Source: https://raw.githubusercontent.com/smart-data-models/dataModel.AAS/master/I4Submodel/schema.json",
+    "description": "Based on IDTA-01001-3-0, describes a generic submodel component of the RAMI4.0 Asset Administration Shell",
+    "displayName": "I4Submodel",
+    "contents": [
+        {
+            "name": "alternateName",
+            "writable": true,
+            "displayName": "alternateName",
+            "@type": "Property",
+            "schema": "string",
+            "comment": "An alternative name for this item"
+        },
+        {
+            "name": "areaServed",
+            "writable": true,
+            "displayName": "areaServed",
+            "@type": "Property",
+            "schema": "string",
+            "comment": "The geographic area where a service or offered item is provided"
+        },
+        {
+            "name": "category",
+            "writable": true,
+            "displayName": "category",
+            "@type": "Property",
+            "schema": "string",
+            "comment": "The category is a value that gives further meta information w.r.t. to the class of the element"
+        },
+        {
+            "name": "dataProvider",
+            "writable": true,
+            "displayName": "dataProvider",
+            "@type": "Property",
+            "schema": "string",
+            "comment": "A sequence of characters identifying the provider of the harmonised data entity"
+        },
+        {
+            "name": "dateCreated",
+            "writable": true,
+            "displayName": "dateCreated",
+            "@type": "Property",
+            "schema": "dateTime",
+            "comment": "Entity creation timestamp. This will usually be allocated by the storage platform"
+        },
+        {
+            "name": "dateModified",
+            "writable": true,
+            "displayName": "dateModified",
+            "@type": "Property",
+            "schema": "dateTime",
+            "comment": "Timestamp of the last modification of the entity. This will usually be allocated by the storage platform"
+        },
+        {
+            "name": "description",
+            "writable": true,
+            "displayName": "description",
+            "@type": "Property",
+            "schema": "string",
+            "comment": "A description of this item"
+        },
+        {
+            "name": "idShort",
+            "writable": true,
+            "displayName": "idShort",
+            "@type": "Property",
+            "schema": "string",
+            "comment": "short id is the (short) name of the Submodel within RAMI40 environment"
+        },
+        {
+            "name": "kind",
+            "writable": true,
+            "displayName": "kind",
+            "@type": "Property",
+            "schema": "string",
+            "comment": "For the distinction of 'type' and 'instance', the term 'kind' is used"
+        },
+        {
+            "name": "location",
+            "writable": true,
+            "displayName": "location"
+        },
+        {
+            "name": "name",
+            "writable": true,
+            "displayName": "name",
+            "@type": "Property",
+            "schema": "string",
+            "comment": "The name of this item"
+        },
+        {
+            "name": "refI4AASId",
+            "writable": true,
+            "displayName": "refI4AASId",
+            "@type": "Relationship",
+            "comment": "References the root Asset Administration Shell which this Submodel belongs to"
+        },
+        {
+            "name": "refI4AssetId",
+            "writable": true,
+            "displayName": "refI4AssetId",
+            "@type": "Relationship",
+            "comment": "References the root Asset which this Submodel belongs to"
+        },
+        {
+            "name": "seeAlso",
+            "writable": true,
+            "displayName": "seeAlso"
+        },
+        {
+            "name": "source",
+            "writable": true,
+            "displayName": "source",
+            "@type": "Property",
+            "schema": "string",
+            "comment": "A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object"
+        },
+        {
+            "@type": "Telemetry",
+            "name": "descriptions",
+            "schema": {
+                "@type": "Array",
+                "elementSchema": "object"
+            },
+            "comment": "For adding detailed knowledge about the AAS in different languages",
+            "displayName": "descriptions"
+        },
+        {
+            "@type": "Telemetry",
+            "name": "hasDataSpecification",
+            "schema": {
+                "@type": "Array",
+                "elementSchema": "object"
+            },
+            "comment": "Data specification defines the additional attributes a Submodel may have. RAMI4.0 specification",
+            "displayName": "hasDataSpecification"
+        },
+        {
+            "@type": "Telemetry",
+            "name": "owner",
+            "schema": {
+                "@type": "Array",
+                "elementSchema": "string"
+            },
+            "comment": "A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)",
+            "displayName": "owner"
+        },
+        {
+            "@type": "Telemetry",
+            "name": "qualifiers",
+            "schema": {
+                "@type": "Array",
+                "elementSchema": "object"
+            },
+            "comment": "Qualifiers are used if the semantics of the element is the same independent of its qualifiers. It is only the quality or the meaning of the value for the element that differs",
+            "displayName": "qualifiers"
+        },
+        {
+            "@type": "Telemetry",
+            "name": "submodelElements",
+            "schema": {
+                "@type": "Array",
+                "elementSchema": "object"
+            },
+            "comment": "Data element which includes the list of Elements -Operations or Commands AND Properties- I4SubmodelElementOperation for RAMI commands / I4SubmodelElementProperty for RAMI Properties",
+            "displayName": "submodelElements"
+        },
+        {
+            "@type": "object",
+            "name": "address",
+            "comment": "The mailing address",
+            "displayName": "address",
+            "fields": [
+                {
+                    "name": "addressCountry",
+                    "schema": "string"
+                },
+                {
+                    "name": "addressLocality",
+                    "schema": "string"
+                },
+                {
+                    "name": "addressRegion",
+                    "schema": "string"
+                },
+                {
+                    "name": "district",
+                    "schema": "string"
+                },
+                {
+                    "name": "postOfficeBoxNumber",
+                    "schema": "string"
+                },
+                {
+                    "name": "postalCode",
+                    "schema": "string"
+                },
+                {
+                    "name": "streetAddress",
+                    "schema": "string"
+                },
+                {
+                    "name": "streetNr",
+                    "schema": "string"
+                }
+            ]
+        },
+        {
+            "@type": "object",
+            "name": "administration",
+            "comment": "AAS Submodel administration information",
+            "displayName": "administration",
+            "fields": [
+                {
+                    "name": "revision",
+                    "schema": "string"
+                },
+                {
+                    "name": "version",
+                    "schema": "string"
+                }
+            ]
+        },
+        {
+            "@type": "object",
+            "name": "identification",
+            "comment": "Identification of the Submodel within its AAS. RAMI4.0 environment",
+            "displayName": "identification",
+            "fields": [
+                {
+                    "name": "id",
+                    "schema": "string"
+                },
+                {
+                    "name": "idType",
+                    "schema": "string"
+                }
+            ]
+        },
+        {
+            "@type": "object",
+            "name": "modelType",
+            "comment": "For the distinction of 'type' and 'instance', the term 'kind' is used.",
+            "displayName": "modelType",
+            "fields": [
+                {
+                    "name": "name",
+                    "schema": "string"
+                }
+            ]
+        },
+        {
+            "@type": "object",
+            "name": "semanticId",
+            "comment": "It refer to an external information source, which explains the formulation of the submodel",
+            "displayName": "semanticId",
+            "fields": [
+                {
+                    "name": "keys",
+                    "schema": "array"
+                }
+            ]
+        }
+    ]
+}
