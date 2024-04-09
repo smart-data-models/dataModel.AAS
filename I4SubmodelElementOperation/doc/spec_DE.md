@@ -7,16 +7,33 @@
 [Dokument automatisch generiert](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
 <!-- /15-License -->  
 <!-- 20-Description -->  
+Globale Beschreibung: **Basierend auf IDTA-01001-3-0, beschreibt ein generisches RAMI4.0 SubmodelElement, das eine OPERATION (Befehl) einer referenzierten Asset Administration Shell darstellt**  
+Version: 0.0.1  
 <!-- /20-Description -->  
 <!-- 30-PropertiesList -->  
 
 ## Liste der Eigenschaften  
 
 <sup><sub>[*] Wenn es für ein Attribut keinen Typ gibt, kann es mehrere Typen oder verschiedene Formate/Muster haben</sub></sup>.  
-<!-- /30-PropertiesList -->  
+- `address[object]`: Die Postanschrift  . Model: [https://schema.org/address](https://schema.org/address)	- `addressCountry[string]`: Das Land. Zum Beispiel, Spanien  . Model: [https://schema.org/addressCountry](https://schema.org/addressCountry)  
+	- `addressLocality[string]`: Die Ortschaft, in der sich die Adresse befindet, und die in der Region liegt  . Model: [https://schema.org/addressLocality](https://schema.org/addressLocality)  
+	- `addressRegion[string]`: Die Region, in der sich der Ort befindet, und die auf dem Land liegt  . Model: [https://schema.org/addressRegion](https://schema.org/addressRegion)  
+	- `district[string]`: Ein Bezirk ist eine Art von Verwaltungseinheit, die in einigen Ländern von der lokalen Regierung verwaltet wird.    
+	- `postOfficeBoxNumber[string]`: Die Postfachnummer für Postfachadressen. Zum Beispiel, 03578  . Model: [https://schema.org/postOfficeBoxNumber](https://schema.org/postOfficeBoxNumber)  
+	- `postalCode[string]`: Die Postleitzahl. Zum Beispiel, 24004  . Model: [https://schema.org/https://schema.org/postalCode](https://schema.org/https://schema.org/postalCode)  
+	- `streetAddress[string]`: Die Straßenanschrift  . Model: [https://schema.org/streetAddress](https://schema.org/streetAddress)  
+	- `streetNr[string]`: Nummer zur Identifizierung eines bestimmten Grundstücks an einer öffentlichen Straße    
+- `alternateName[string]`: Ein alternativer Name für diesen Artikel  - `areaServed[string]`: Das geografische Gebiet, in dem eine Dienstleistung oder ein angebotener Artikel erbracht wird  . Model: [https://schema.org/Text](https://schema.org/Text)- `category[string]`: Die Kategorie ist ein Wert, der weitere Metainformationen über die Klasse des Elements enthält.  - `dataProvider[string]`: Eine Folge von Zeichen zur Identifizierung des Anbieters der harmonisierten Dateneinheit  - `dateCreated[date-time]`: Zeitstempel der Entitätserstellung. Dieser wird in der Regel von der Speicherplattform zugewiesen  - `dateModified[date-time]`: Zeitstempel der letzten Änderung der Entität. Dieser wird in der Regel von der Speicherplattform vergeben  - `description[string]`: Eine Beschreibung dieses Artikels  - `descriptions[array]`: Zum Hinzufügen detaillierter Kenntnisse über das Element in verschiedenen Sprachen  - `executionState[string]`: Der Status des Ergebnisses des Operationsaufrufs  - `hasDataSpecification[array]`: Element, das mit Hilfe von Datenspezifikationsvorlagen erweitert werden kann. Eine Datenspezifikationsvorlage definiert einen benannten Satz zusätzlicher Attribute, die ein Element haben kann oder soll. RAMI4.0-Spezifikation  - `id[*]`: Eindeutiger Bezeichner der Entität  - `idShort[string]`: short id ist der (kurze) Name des SubmodelElements in der RAMI40-Umgebung  - `inoutputVariable[array]`: Array mit Parametern, die Eingang und Ausgang der Operation sind  - `inputVariable[array]`: Array mit Eingabeparametern der Operation  - `kind[string]`: Für die Unterscheidung von "Typ" und "Instanz" wird der Begriff "Art" verwendet  - `location[*]`: Geojson-Referenz auf das Element. Es kann Punkt, LineString, Polygon, MultiPoint, MultiLineString oder MultiPolygon sein  - `modelType[object]`: Für die Unterscheidung von "Typ" und "Instanz" wird der Begriff "Art" verwendet  	- `name[string]`: Eigenschaft des Objekts. Normalerweise ist -Operation- für diesen Typ festgelegt    
+- `name[string]`: Der Name dieses Artikels  - `operationResult[object]`: Enthält das Objekt operation invocation result mit dem zurückgegebenen Ergebnis eines Operationsaufrufs  	- `entity[object]`: Satz von Eigenschaften, die mit den Ergebnissen der Operation verknüpft sind    
+	- `entityType[string]`: Entitätstyp Beschreibung/Referenz    
+	- `isException[boolean]`: Wahr, wenn es sich um eine Ausnahme handelt    
+	- `messages[array]`: Zusätzliche Nachricht mit Informationen für den Antragsteller    
+	- `success[boolean]`: Erfolg true, wenn die Operation erfolgreich war. False wenn nicht    
+- `outputVariable[array]`: Array mit Ausgabeparametern der Operation  - `owner[array]`: Eine Liste mit einer JSON-kodierten Zeichenfolge, die auf die eindeutigen Kennungen der Eigentümer verweist  - `refI4AASId[string]`: Verweist auf die Stamm-Assetverwaltungsschale, zu der dieses SubmodelElement gehört  - `refI4AssetId[string]`: Verweist auf das Stamm-Asset, zu dem dieses SubmodelElement gehört  - `refI4SubmodelId[string]`: Verweist auf das Wurzel-Submodell, zu dem dieses SubmodelElement gehört  - `requestId[string]`: ID der gesendeten Client-Anfrage -für INPUT- und/oder der abgerufenen Werte/Status -für OUTPUT-. Wird verwendet, um die Vorgänge zu verfolgen  - `seeAlso[*]`: Liste von URLs, die auf zusätzliche Ressourcen zu dem Artikel verweisen  - `semanticId[object]`: Sie verweist auf eine externe Informationsquelle, die die Formulierung des Teilmodellelements erklärt  	- `keys[array]`: Schlüssel für die semantische Id    
+- `source[string]`: Eine Folge von Zeichen, die die ursprüngliche Quelle der Entitätsdaten als URL angibt. Empfohlen wird der voll qualifizierte Domänenname des Quellanbieters oder die URL des Quellobjekts.  - `timeout[number]`: Stellt den vom OPC-UA Server gemeldeten Timeout-Wert für diesen Befehl dar  - `type[string]`: Es muss ein RAMI4.0 I4SubmodelElementOperation NGSI Entity Typ sein, um eine RAMI4.0 AAS Digital Twin Submodel Operation Komponente darzustellen  <!-- /30-PropertiesList -->  
 <!-- 35-RequiredProperties -->  
 Erforderliche Eigenschaften  
-- Keine erforderlichen Eigenschaften  <!-- /35-RequiredProperties -->  
+- `id`  - `type`  <!-- /35-RequiredProperties -->  
 <!-- 40-NotesYaml -->  
 <!-- /40-NotesYaml -->  
 <!-- 50-DataModelHeader -->  
