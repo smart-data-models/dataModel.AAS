@@ -7,16 +7,33 @@
 [document generated automatically](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
 <!-- /15-License -->  
 <!-- 20-Description -->  
+Global description: **Based on IDTA-01001-3-0, describes a generic RAMI4.0 SubmodelElement representing an OPERATION (Command) of a referenced Asset Administration Shell**  
+version: 0.0.1  
 <!-- /20-Description -->  
 <!-- 30-PropertiesList -->  
 
 ## List of properties  
 
 <sup><sub>[*] If there is not a type in an attribute is because it could have several types or different formats/patterns</sub></sup>  
-<!-- /30-PropertiesList -->  
+- `address[object]`: The mailing address  . Model: [https://schema.org/address](https://schema.org/address)	- `addressCountry[string]`: The country. For example, Spain  . Model: [https://schema.org/addressCountry](https://schema.org/addressCountry)  
+	- `addressLocality[string]`: The locality in which the street address is, and which is in the region  . Model: [https://schema.org/addressLocality](https://schema.org/addressLocality)  
+	- `addressRegion[string]`: The region in which the locality is, and which is in the country  . Model: [https://schema.org/addressRegion](https://schema.org/addressRegion)  
+	- `district[string]`: A district is a type of administrative division that, in some countries, is managed by the local government    
+	- `postOfficeBoxNumber[string]`: The post office box number for PO box addresses. For example, 03578  . Model: [https://schema.org/postOfficeBoxNumber](https://schema.org/postOfficeBoxNumber)  
+	- `postalCode[string]`: The postal code. For example, 24004  . Model: [https://schema.org/https://schema.org/postalCode](https://schema.org/https://schema.org/postalCode)  
+	- `streetAddress[string]`: The street address  . Model: [https://schema.org/streetAddress](https://schema.org/streetAddress)  
+	- `streetNr[string]`: Number identifying a specific property on a public street    
+- `alternateName[string]`: An alternative name for this item  - `areaServed[string]`: The geographic area where a service or offered item is provided  . Model: [https://schema.org/Text](https://schema.org/Text)- `category[string]`: The category is a value that gives further meta information w.r.t. to the class of the element  - `dataProvider[string]`: A sequence of characters identifying the provider of the harmonised data entity  - `dateCreated[date-time]`: Entity creation timestamp. This will usually be allocated by the storage platform  - `dateModified[date-time]`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform  - `description[string]`: A description of this item  - `descriptions[array]`: For adding detailed knowledge about the Element in different languages  - `executionState[string]`: The operation invocation result state  - `hasDataSpecification[array]`: Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification  - `id[*]`: Unique identifier of the entity  - `idShort[string]`: short id is the (short) name of the SubmodelElement within RAMI40 environment  - `inoutputVariable[array]`: Array with parameters that are input and output of the operation  - `inputVariable[array]`: Array with input parameters of the operation  - `kind[string]`: For the distinction of 'type' and 'instance', the term 'kind' is used  - `location[*]`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon  - `modelType[object]`: For the distinction of 'type' and 'instance', the term 'kind' is used  	- `name[string]`: Property of the item. Usually -Operation- is set for this type    
+- `name[string]`: The name of this item  - `operationResult[object]`: Contains The operation invocation result object with the returned result of an operation invocation  	- `entity[object]`: Set of properties linked to the operation results    
+	- `entityType[string]`: Entity type description/reference    
+	- `isException[boolean]`: True if it is an exception    
+	- `messages[array]`: Additional message containing information for the requester    
+	- `success[boolean]`: Success true if operation succeed. False if not    
+- `outputVariable[array]`: Array with Output parameters of the operation  - `owner[array]`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)  - `refI4AASId[string]`: References the root Asset Administration Shell which this SubmodelElement belongs to  - `refI4AssetId[string]`: References the root Asset which this SubmodelElement belongs to  - `refI4SubmodelId[string]`: References the root Submodel which this SubmodelElement belongs to  - `requestId[string]`: Client request ID sent -for INPUT- and/or the retrieved value/status -for OUTPUT-. Used to TRACK the operations  - `seeAlso[*]`: list of uri pointing to additional resources about the item  - `semanticId[object]`: It refers to an external information source, which explains the formulation of the submodel element  	- `keys[array]`: Keys for the semantic id    
+- `source[string]`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object  - `timeout[number]`: Represents the timeout value for this command reported by the OPC-UA server  - `type[string]`: It has to be RAMI4.0 I4SubmodelElementOperation NGSI Entity type to represent a RAMI4.0 AAS Digital Twin Submodel Operation component  <!-- /30-PropertiesList -->  
 <!-- 35-RequiredProperties -->  
 Required properties  
-- No required properties  <!-- /35-RequiredProperties -->  
+- `id`  - `type`  <!-- /35-RequiredProperties -->  
 <!-- 40-NotesYaml -->  
 <!-- /40-NotesYaml -->  
 <!-- 50-DataModelHeader -->  
