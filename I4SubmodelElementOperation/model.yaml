@@ -1,0 +1,862 @@
+I4SubmodelElementOperation:
+  description: 'Based on IDTA-01001-3-0, describes a generic RAMI4.0 SubmodelElement representing an OPERATION (Command) of a referenced Asset Administration Shell'
+  properties:
+    address:
+      description: The mailing address
+      properties:
+        addressCountry:
+          description: 'The country. For example, Spain'
+          type: string
+          x-ngsi:
+            model: https://schema.org/addressCountry
+            type: Property
+        addressLocality:
+          description: 'The locality in which the street address is, and which is in the region'
+          type: string
+          x-ngsi:
+            model: https://schema.org/addressLocality
+            type: Property
+        addressRegion:
+          description: 'The region in which the locality is, and which is in the country'
+          type: string
+          x-ngsi:
+            model: https://schema.org/addressRegion
+            type: Property
+        district:
+          description: 'A district is a type of administrative division that, in some countries, is managed by the local government'
+          type: string
+          x-ngsi:
+            type: Property
+        postOfficeBoxNumber:
+          description: 'The post office box number for PO box addresses. For example, 03578'
+          type: string
+          x-ngsi:
+            model: https://schema.org/postOfficeBoxNumber
+            type: Property
+        postalCode:
+          description: 'The postal code. For example, 24004'
+          type: string
+          x-ngsi:
+            model: https://schema.org/https://schema.org/postalCode
+            type: Property
+        streetAddress:
+          description: The street address
+          type: string
+          x-ngsi:
+            model: https://schema.org/streetAddress
+            type: Property
+        streetNr:
+          description: Number identifying a specific property on a public street
+          type: string
+          x-ngsi:
+            type: Property
+      type: object
+      x-ngsi:
+        model: https://schema.org/address
+        type: Property
+    alternateName:
+      description: An alternative name for this item
+      type: string
+      x-ngsi:
+        type: Property
+    areaServed:
+      description: The geographic area where a service or offered item is provided
+      type: string
+      x-ngsi:
+        model: https://schema.org/Text
+        type: Property
+    category:
+      description: The category is a value that gives further meta information w.r.t. to the class of the element
+      type: string
+      x-ngsi:
+        type: Property
+    dataProvider:
+      description: A sequence of characters identifying the provider of the harmonised data entity
+      type: string
+      x-ngsi:
+        type: Property
+    dateCreated:
+      description: Entity creation timestamp. This will usually be allocated by the storage platform
+      format: date-time
+      type: string
+      x-ngsi:
+        type: Property
+    dateModified:
+      description: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform
+      format: date-time
+      type: string
+      x-ngsi:
+        type: Property
+    description:
+      description: A description of this item
+      type: string
+      x-ngsi:
+        type: Property
+    descriptions:
+      description: For adding detailed knowledge about the Element in different languages
+      items:
+        description: Every object containing a description
+        properties:
+          language:
+            description: Substring identifying the language. Acronym according to ISO 639-1
+            type: string
+            x-ngsi:
+              type: Property
+          text:
+            description: The Description text is filled here
+            type: string
+            x-ngsi:
+              type: Property
+        type: object
+        x-ngsi:
+          type: Property
+      type: array
+      x-ngsi:
+        type: Property
+    executionState:
+      description: The operation invocation result state
+      enum:
+        - canceled
+        - completed
+        - failed
+        - initiated
+        - running
+        - timeout
+      type: string
+      x-ngsi:
+        type: Property
+    hasDataSpecification:
+      description: Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification
+      items:
+        description: Object containing the elements of the data specification
+        properties:
+          type:
+            description: 'Link, url or description of the specified data. DataSpecification template conformant to IEC61360'
+            type: string
+            x-ngsi:
+              type: Property
+        type: object
+        x-ngsi:
+          type: Property
+      type: array
+      x-ngsi:
+        type: Property
+    id:
+      anyOf:
+        - description: Identifier format of any NGSI entity
+          maxLength: 256
+          minLength: 1
+          pattern: ^[\w\-\.\{\}\$\+\*\[\]`|~^@!,:\\]+$
+          type: string
+          x-ngsi:
+            type: Property
+        - description: Identifier format of any NGSI entity
+          format: uri
+          type: string
+          x-ngsi:
+            type: Property
+      description: Unique identifier of the entity
+      x-ngsi:
+        type: Property
+    idShort:
+      description: short id is the (short) name of the SubmodelElement within RAMI40 environment
+      type: string
+      x-ngsi:
+        type: Property
+    inoutputVariable:
+      description: Array with parameters that are input and output of the operation
+      items:
+        description: Defines an inoutput variable for this command request
+        properties:
+          category:
+            description: The category is a value that gives further meta information w.r.t. to the class of the element
+            type: string
+            x-ngsi:
+              type: Property
+          constraints:
+            description: Constraints an inoutput Variable may have. RAMI4.0 Asset Administration Shell specification. Version 3.0RC02
+            items:
+              description: 'Every object containing the constraints '
+              properties:
+                type:
+                  description: 'Link, url, constraint ID (AAS Version 3.0RC02) or description of the constrain to be applied'
+                  type: string
+                  x-ngsi:
+                    type: Property
+              type: object
+              x-ngsi:
+                type: Property
+            type: array
+            x-ngsi:
+              type: Property
+          descriptions:
+            description: For adding detailed knowledge about the Element in different languages
+            items:
+              description: Every object containing the attributes of the descriptions
+              properties:
+                language:
+                  description: Substring identifying the language. Acronym according to ISO 639-1
+                  type: string
+                  x-ngsi:
+                    type: Property
+                text:
+                  description: The Description text is filled here
+                  type: string
+                  x-ngsi:
+                    type: Property
+              type: object
+              x-ngsi:
+                type: Property
+            type: array
+            x-ngsi:
+              type: Property
+          hasDataSpecification:
+            description: Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification
+            items:
+              description: Every object containing the descriptions of the data specification
+              properties:
+                type:
+                  description: 'Link, url or description of the specified data. DataSpecification template conformant to IEC61360'
+                  type: string
+                  x-ngsi:
+                    type: Property
+              type: object
+              x-ngsi:
+                type: Property
+            type: array
+            x-ngsi:
+              type: Property
+          idShort:
+            description: short id is the (short) name of the inoutput Value -variable name- within RAMI40 environment
+            type: string
+            x-ngsi:
+              type: Property
+          kind:
+            description: 'For the distinction of ''type'' and ''instance'', the term ''kind'' is used'
+            type: string
+            x-ngsi:
+              type: Property
+          modelType:
+            description: 'For the distinction of ''type'' and ''instance'', the term ''kind'' is used'
+            properties:
+              name:
+                description: Property of the item
+                type: string
+                x-ngsi:
+                  type: Property
+            type: object
+            x-ngsi:
+              type: Property
+          value:
+            description: The obtained value in string format
+            type: string
+            x-ngsi:
+              type: Property
+          valueType:
+            description: The value type used in string format
+            properties:
+              dataObjectType:
+                description: 'Property of the item. string, integer, float, num etc. are used set for this type'
+                properties:
+                  name:
+                    description: Property of the item. Object type
+                    type: string
+                    x-ngsi:
+                      type: Property
+                type: object
+                x-ngsi:
+                  type: Property
+            type: object
+            x-ngsi:
+              type: Property
+        type: object
+        x-ngsi:
+          type: Property
+      type: array
+      x-ngsi:
+        type: Property
+    inputVariable:
+      description: Array with input parameters of the operation
+      items:
+        description: Defines an Input variable for this command request
+        properties:
+          category:
+            description: The category is a value that gives further meta information w.r.t. to the class of the element
+            type: string
+            x-ngsi:
+              type: Property
+          constraints:
+            description: Constraints an Input Variable may have. RAMI4.0 Asset Administration Shell specification. Version 3.0RC02
+            items:
+              description: The object containing the constraints
+              properties:
+                type:
+                  description: 'Link, url, constraint ID (AAS Version 3.0RC02) or description of the constrain to be applied'
+                  type: string
+                  x-ngsi:
+                    type: Property
+              type: object
+              x-ngsi:
+                type: Property
+            type: array
+            x-ngsi:
+              type: Property
+          descriptions:
+            description: For adding detailed knowledge about the Element in different languages
+            items:
+              description: Every object containing the descriptions properties
+              properties:
+                language:
+                  description: Substring identifying the language. Acronym according to ISO 639-1
+                  type: string
+                  x-ngsi:
+                    type: Property
+                text:
+                  description: The Description text is filled here
+                  type: string
+                  x-ngsi:
+                    type: Property
+              type: object
+              x-ngsi:
+                type: Property
+            type: array
+            x-ngsi:
+              type: Property
+          hasDataSpecification:
+            description: Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification
+            items:
+              description: Every object containing the attributes of the data specification
+              properties:
+                type:
+                  description: 'Link, url or description of the specified data. DataSpecification template conformant to IEC61360'
+                  type: string
+                  x-ngsi:
+                    type: Property
+              type: object
+              x-ngsi:
+                type: Property
+            type: array
+            x-ngsi:
+              type: Property
+          idShort:
+            description: short id is the (short) name of the Input Value -variable name- within RAMI40 environment
+            type: string
+            x-ngsi:
+              type: Property
+          kind:
+            description: 'For the distinction of ''type'' and ''instance'', the term ''kind'' is used'
+            type: string
+            x-ngsi:
+              type: Property
+          modelType:
+            description: 'For the distinction of ''type'' and ''instance'', the term ''kind'' is used'
+            properties:
+              name:
+                description: Property of the item. Usually -OperationVariable- is set for this type
+                type: string
+                x-ngsi:
+                  type: Property
+            type: object
+            x-ngsi:
+              type: Property
+          value:
+            description: The given value in string format
+            type: string
+            x-ngsi:
+              type: Property
+          valueType:
+            description: The value type used in string format
+            properties:
+              dataObjectType:
+                description: 'Property of the item. string, integer, float, num etc. are used set for this type'
+                properties:
+                  name:
+                    description: Property of the item. Object type
+                    type: string
+                    x-ngsi:
+                      type: Property
+                type: object
+                x-ngsi:
+                  type: Property
+            type: object
+            x-ngsi:
+              type: Property
+        type: object
+        x-ngsi:
+          type: Property
+      type: array
+      x-ngsi:
+        type: Property
+    kind:
+      description: 'For the distinction of ''type'' and ''instance'', the term ''kind'' is used'
+      type: string
+      x-ngsi:
+        type: Property
+    location:
+      description: 'Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon'
+      oneOf:
+        - description: Geojson reference to the item. Point
+          properties:
+            bbox:
+              items:
+                type: number
+              minItems: 4
+              type: array
+            coordinates:
+              items:
+                type: number
+              minItems: 2
+              type: array
+            type:
+              enum:
+                - Point
+              type: string
+          required:
+            - type
+            - coordinates
+          title: GeoJSON Point
+          type: object
+          x-ngsi:
+            type: GeoProperty
+        - description: Geojson reference to the item. LineString
+          properties:
+            bbox:
+              items:
+                type: number
+              minItems: 4
+              type: array
+            coordinates:
+              items:
+                items:
+                  type: number
+                minItems: 2
+                type: array
+              minItems: 2
+              type: array
+            type:
+              enum:
+                - LineString
+              type: string
+          required:
+            - type
+            - coordinates
+          title: GeoJSON LineString
+          type: object
+          x-ngsi:
+            type: GeoProperty
+        - description: Geojson reference to the item. Polygon
+          properties:
+            bbox:
+              items:
+                type: number
+              minItems: 4
+              type: array
+            coordinates:
+              items:
+                items:
+                  items:
+                    type: number
+                  minItems: 2
+                  type: array
+                minItems: 4
+                type: array
+              type: array
+            type:
+              enum:
+                - Polygon
+              type: string
+          required:
+            - type
+            - coordinates
+          title: GeoJSON Polygon
+          type: object
+          x-ngsi:
+            type: GeoProperty
+        - description: Geojson reference to the item. MultiPoint
+          properties:
+            bbox:
+              items:
+                type: number
+              minItems: 4
+              type: array
+            coordinates:
+              items:
+                items:
+                  type: number
+                minItems: 2
+                type: array
+              type: array
+            type:
+              enum:
+                - MultiPoint
+              type: string
+          required:
+            - type
+            - coordinates
+          title: GeoJSON MultiPoint
+          type: object
+          x-ngsi:
+            type: GeoProperty
+        - description: Geojson reference to the item. MultiLineString
+          properties:
+            bbox:
+              items:
+                type: number
+              minItems: 4
+              type: array
+            coordinates:
+              items:
+                items:
+                  items:
+                    type: number
+                  minItems: 2
+                  type: array
+                minItems: 2
+                type: array
+              type: array
+            type:
+              enum:
+                - MultiLineString
+              type: string
+          required:
+            - type
+            - coordinates
+          title: GeoJSON MultiLineString
+          type: object
+          x-ngsi:
+            type: GeoProperty
+        - description: Geojson reference to the item. MultiLineString
+          properties:
+            bbox:
+              items:
+                type: number
+              minItems: 4
+              type: array
+            coordinates:
+              items:
+                items:
+                  items:
+                    items:
+                      type: number
+                    minItems: 2
+                    type: array
+                  minItems: 4
+                  type: array
+                type: array
+              type: array
+            type:
+              enum:
+                - MultiPolygon
+              type: string
+          required:
+            - type
+            - coordinates
+          title: GeoJSON MultiPolygon
+          type: object
+          x-ngsi:
+            type: GeoProperty
+      x-ngsi:
+        type: GeoProperty
+    modelType:
+      description: 'For the distinction of ''type'' and ''instance'', the term ''kind'' is used'
+      properties:
+        name:
+          description: Property of the item. Usually -Operation- is set for this type
+          type: string
+          x-ngsi:
+            type: Property
+      type: object
+      x-ngsi:
+        type: Property
+    name:
+      description: The name of this item
+      type: string
+      x-ngsi:
+        type: Property
+    operationResult:
+      description: Contains The operation invocation result object with the returned result of an operation invocation
+      properties:
+        entity:
+          description: Set of properties linked to the operation results
+          type: object
+          x-ngsi:
+            type: Property
+        entityType:
+          description: Entity type description/reference
+          type: string
+          x-ngsi:
+            type: Property
+        isException:
+          description: True if it is an exception
+          type: boolean
+          x-ngsi:
+            type: Property
+        messages:
+          description: Additional message containing information for the requester
+          items:
+            description: Item object for the messages
+            properties:
+              code:
+                description: Technology-dependent status or error code
+                type: string
+                x-ngsi:
+                  type: Property
+              messageType:
+                description: The message type enum
+                enum:
+                  - error
+                  - exception
+                  - info
+                  - warning
+                type: string
+                x-ngsi:
+                  type: Property
+              text:
+                description: A message containing more information for the requester about a certain happening in the backend
+                type: string
+                x-ngsi:
+                  type: Property
+            type: object
+            x-ngsi:
+              type: Property
+          type: array
+          x-ngsi:
+            type: Property
+        success:
+          description: Success true if operation succeed. False if not
+          type: boolean
+          x-ngsi:
+            type: Property
+      type: object
+      x-ngsi:
+        type: Property
+    outputVariable:
+      description: Array with Output parameters of the operation
+      items:
+        description: Defines an Output variable for this command request
+        properties:
+          category:
+            description: The category is a value that gives further meta information w.r.t. to the class of the element
+            type: string
+            x-ngsi:
+              type: Property
+          constraints:
+            description: Constraints an Output Variable may have. RAMI4.0 Asset Administration Shell specification. Version 3.0RC02
+            items:
+              description: Every object containing the description of the constraints
+              properties:
+                type:
+                  description: 'Link, url, constraint ID (AAS Version 3.0RC02) or description of the constrain to be applied'
+                  type: string
+                  x-ngsi:
+                    type: Property
+              type: object
+              x-ngsi:
+                type: Property
+            type: array
+            x-ngsi:
+              type: Property
+          descriptions:
+            description: For adding detailed knowledge about the Element in different languages
+            items:
+              description: Every object containing the attributes of the descriptions
+              properties:
+                language:
+                  description: Substring identifying the language. Acronym according to ISO 639-1
+                  type: string
+                  x-ngsi:
+                    type: Property
+                text:
+                  description: The Description text is filled here
+                  type: string
+                  x-ngsi:
+                    type: Property
+              type: object
+              x-ngsi:
+                type: Property
+            type: array
+            x-ngsi:
+              type: Property
+          hasDataSpecification:
+            description: Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification
+            items:
+              description: Every object containing the details of the data specification
+              properties:
+                type:
+                  description: 'Link, url or description of the specified data. DataSpecification template conformant to IEC61360'
+                  type: string
+                  x-ngsi:
+                    type: Property
+              type: object
+              x-ngsi:
+                type: Property
+            type: array
+            x-ngsi:
+              type: Property
+          idShort:
+            description: short id is the (short) name of the Output Value -variable name- within RAMI40 environment
+            type: string
+            x-ngsi:
+              type: Property
+          kind:
+            description: 'For the distinction of ''type'' and ''instance'', the term ''kind'' is used'
+            type: string
+            x-ngsi:
+              type: Property
+          modelType:
+            description: 'For the distinction of ''type'' and ''instance'', the term ''kind'' is used'
+            properties:
+              name:
+                description: Property of the item. Usually -OperationVariable- is set for this type
+                type: string
+                x-ngsi:
+                  type: Property
+            type: object
+            x-ngsi:
+              type: Property
+          value:
+            description: The obtained value in string format
+            type: string
+            x-ngsi:
+              type: Property
+          valueType:
+            description: The value type used in string format
+            properties:
+              dataObjectType:
+                description: 'Property of the item. string, integer, float, num etc. are used set for this type'
+                properties:
+                  name:
+                    description: Property of the item. Object type
+                    type: string
+                    x-ngsi:
+                      type: Property
+                type: object
+                x-ngsi:
+                  type: Property
+            type: object
+            x-ngsi:
+              type: Property
+        type: object
+        x-ngsi:
+          type: Property
+      type: array
+      x-ngsi:
+        type: Property
+    owner:
+      description: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
+      items:
+        anyOf:
+          - description: Identifier format of any NGSI entity
+            maxLength: 256
+            minLength: 1
+            pattern: ^[\w\-\.\{\}\$\+\*\[\]`|~^@!,:\\]+$
+            type: string
+            x-ngsi:
+              type: Property
+          - description: Identifier format of any NGSI entity
+            format: uri
+            type: string
+            x-ngsi:
+              type: Property
+        description: Unique identifier of the entity
+        x-ngsi:
+          type: Property
+      type: array
+      x-ngsi:
+        type: Property
+    refI4AASId:
+      description: References the root Asset Administration Shell which this SubmodelElement belongs to
+      type: string
+      x-ngsi:
+        type: Relationship
+    refI4AssetId:
+      description: References the root Asset which this SubmodelElement belongs to
+      type: string
+      x-ngsi:
+        type: Relationship
+    refI4SubmodelId:
+      description: References the root Submodel which this SubmodelElement belongs to
+      type: string
+      x-ngsi:
+        type: Relationship
+    requestId:
+      description: Client request ID sent -for INPUT- and/or the retrieved value/status -for OUTPUT-. Used to TRACK the operations
+      type: string
+      x-ngsi:
+        type: Property
+    seeAlso:
+      description: list of uri pointing to additional resources about the item
+      oneOf:
+        - items:
+            format: uri
+            type: string
+          minItems: 1
+          type: array
+        - format: uri
+          type: string
+      x-ngsi:
+        type: Property
+    semanticId:
+      description: 'It refers to an external information source, which explains the formulation of the submodel element'
+      properties:
+        keys:
+          description: Keys for the semantic id
+          items:
+            description: Every object containing the keys for the semantic id
+            properties:
+              idType:
+                description: References the ID of the type
+                type: string
+                x-ngsi:
+                  type: Property
+              index:
+                description: Integer value of the item
+                type: number
+                x-ngsi:
+                  type: Property
+              local:
+                description: Describes a local or not item
+                type: boolean
+                x-ngsi:
+                  type: Property
+              value:
+                description: Describes/includes the corresponding value
+                type: string
+                x-ngsi:
+                  type: Property
+            type: object
+            x-ngsi:
+              type: Property
+          type: array
+          x-ngsi:
+            type: Property
+      type: object
+      x-ngsi:
+        type: Property
+    source:
+      description: 'A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object'
+      type: string
+      x-ngsi:
+        type: Property
+    timeout:
+      description: Represents the timeout value for this command reported by the OPC-UA server
+      type: number
+      x-ngsi:
+        type: Property
+    type:
+      description: It has to be RAMI4.0 I4SubmodelElementOperation NGSI Entity type to represent a RAMI4.0 AAS Digital Twin Submodel Operation component
+      enum:
+        - I4SubmodelElementOperation
+      type: string
+      x-ngsi:
+        type: Property
+  required:
+    - id
+    - type
+  type: object
+  x-derived-from: https://industrialdigitaltwin.org/en/wp-content/uploads/sites/2/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf
+  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2024 Contributors to Smart Data Models Program'
+  x-license-url: https://github.com/smart-data-models/dataModel.AAS/blob/master/I4SubmodelElementOperation/LICENSE.md
+  x-model-schema: https://smart-data-models.github.io/dataModel.AAS/I4SubmodelElementOperation/schema.json
+  x-model-tags: Corosect
+  x-version: 0.0.1
