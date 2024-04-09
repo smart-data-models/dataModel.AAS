@@ -10,6 +10,10 @@ The following entity types are available:
 
 - [I4Submodel](https://github.com/smart-data-models/dataModel.AAS/blob/master/I4Submodel/README.md). Based on IDTA-01001-3-0, describes a generic submodel component of the RAMI4.0 Asset Administration Shell
 
+- [I4SubmodelElementOperation](https://github.com/smart-data-models/dataModel.AAS/blob/master/I4SubmodelElementOperation/README.md). Based on IDTA-01001-3-0, describes a generic RAMI4.0 SubmodelElement representing an OPERATION (Command) of a referenced Asset Administration Shell
+
+- [I4SubmodelElementProperty](https://github.com/smart-data-models/dataModel.AAS/blob/master/I4SubmodelElementProperty/README.md). Based on IDTA-01001-3-0, maps a generic RAMI4.0 SubmodelElement representing a PROPERTY or attribute of a referenced AAS. RAMI4.0 Standard
+
 
 
 ### Contributors
