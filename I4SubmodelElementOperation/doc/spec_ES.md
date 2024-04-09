@@ -7,16 +7,33 @@
 [documento generado automáticamente](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
 <!-- /15-License -->  
 <!-- 20-Description -->  
+Descripción global: **Basado en IDTA-01001-3-0, describe un SubmodelElement genérico RAMI4.0 que representa una OPERATION (Command) de un Asset Administration Shell referenciado**.  
+versión: 0.0.1  
 <!-- /20-Description -->  
 <!-- 30-PropertiesList -->  
 
 ## Lista de propiedades  
 
 <sup><sub>[*] Si no hay un tipo en un atributo es porque puede tener varios tipos o diferentes formatos/patrones</sub></sup>.  
-<!-- /30-PropertiesList -->  
+- `address[object]`: La dirección postal  . Model: [https://schema.org/address](https://schema.org/address)	- `addressCountry[string]`: El país. Por ejemplo, España  . Model: [https://schema.org/addressCountry](https://schema.org/addressCountry)  
+	- `addressLocality[string]`: La localidad en la que se encuentra la dirección postal, y que está en la región  . Model: [https://schema.org/addressLocality](https://schema.org/addressLocality)  
+	- `addressRegion[string]`: La región en la que se encuentra la localidad, y que está en el país  . Model: [https://schema.org/addressRegion](https://schema.org/addressRegion)  
+	- `district[string]`: Un distrito es un tipo de división administrativa que, en algunos países, gestiona el gobierno local    
+	- `postOfficeBoxNumber[string]`: El número del apartado de correos para las direcciones de apartados postales. Por ejemplo, 03578  . Model: [https://schema.org/postOfficeBoxNumber](https://schema.org/postOfficeBoxNumber)  
+	- `postalCode[string]`: El código postal. Por ejemplo, 24004  . Model: [https://schema.org/https://schema.org/postalCode](https://schema.org/https://schema.org/postalCode)  
+	- `streetAddress[string]`: La dirección  . Model: [https://schema.org/streetAddress](https://schema.org/streetAddress)  
+	- `streetNr[string]`: Número que identifica una propiedad específica en una vía pública    
+- `alternateName[string]`: Un nombre alternativo para este artículo  - `areaServed[string]`: La zona geográfica en la que se presta un servicio o se ofrece un artículo  . Model: [https://schema.org/Text](https://schema.org/Text)- `category[string]`: La categoría es un valor que proporciona información adicional sobre la clase del elemento.  - `dataProvider[string]`: Una secuencia de caracteres que identifica al proveedor de la entidad de datos armonizada  - `dateCreated[date-time]`: Fecha de creación de la entidad. Normalmente será asignada por la plataforma de almacenamiento  - `dateModified[date-time]`: Marca de tiempo de la última modificación de la entidad. Suele ser asignada por la plataforma de almacenamiento  - `description[string]`: Descripción de este artículo  - `descriptions[array]`: Para añadir conocimientos detallados sobre el Elemento en distintas lenguas  - `executionState[string]`: Estado del resultado de la invocación de la operación  - `hasDataSpecification[array]`: Elemento que puede ampliarse utilizando plantillas de especificación de datos. Un modelo de especificación de datos define un conjunto de atributos adicionales que un elemento puede o debe tener. Especificación RAMI4.0  - `id[*]`: Identificador único de la entidad  - `idShort[string]`: short id es el nombre (corto) del SubmodelElement dentro del entorno RAMI40  - `inoutputVariable[array]`: Matriz con los parámetros de entrada y salida de la operación  - `inputVariable[array]`: Matriz con los parámetros de entrada de la operación  - `kind[string]`: Para distinguir entre "tipo" e "instancia", se utiliza el término "clase".  - `location[*]`: Referencia Geojson al elemento. Puede ser Point, LineString, Polygon, MultiPoint, MultiLineString o MultiPolygon.  - `modelType[object]`: Para distinguir entre "tipo" e "instancia", se utiliza el término "clase".  	- `name[string]`: Propiedad del elemento. Normalmente se establece -Operación- para este tipo    
+- `name[string]`: El nombre de este artículo  - `operationResult[object]`: Contiene El objeto de resultado de invocación de operación con el resultado devuelto de una invocación de operación  	- `entity[object]`: Conjunto de propiedades vinculadas a los resultados de la operación    
+	- `entityType[string]`: Descripción/referencia del tipo de entidad    
+	- `isException[boolean]`: Verdadero si es una excepción    
+	- `messages[array]`: Mensaje adicional con información para el solicitante    
+	- `success[boolean]`: Éxito true si la operación se ha realizado correctamente. False si no    
+- `outputVariable[array]`: Matriz con los parámetros de salida de la operación  - `owner[array]`: Una lista que contiene una secuencia de caracteres codificada en JSON que hace referencia a los identificadores únicos de los propietarios.  - `refI4AASId[string]`: Hace referencia al Shell raíz de la Administración de Activos al que pertenece este SubmodelElement  - `refI4AssetId[string]`: Hace referencia al Activo raíz al que pertenece este SubmodelElement  - `refI4SubmodelId[string]`: Hace referencia al Submodel raíz al que pertenece este SubmodelElement  - `requestId[string]`: ID de la solicitud del cliente enviada -para ENTRADA- y/o el valor/estado recuperado -para SALIDA-. Se utiliza para SEGUIR las operaciones  - `seeAlso[*]`: lista de uri que apuntan a recursos adicionales sobre el artículo  - `semanticId[object]`: Remite a una fuente de información externa, que explica la formulación del elemento del submodelo  	- `keys[array]`: Claves para la identificación semántica    
+- `source[string]`: Secuencia de caracteres que indica la fuente original de los datos de la entidad en forma de URL. Se recomienda que sea el nombre de dominio completo del proveedor de origen o la URL del objeto de origen.  - `timeout[number]`: Representa el valor de tiempo de espera para este comando informado por el servidor OPC-UA  - `type[string]`: Tiene que ser de tipo Entidad NGSI RAMI4.0 I4SubmodelElementOperation para representar un componente de operación de submodelo digital AAS RAMI4.0  <!-- /30-PropertiesList -->  
 <!-- 35-RequiredProperties -->  
 Propiedades requeridas  
-- No se requieren propiedades  <!-- /35-RequiredProperties -->  
+- `id`  - `type`  <!-- /35-RequiredProperties -->  
 <!-- 40-NotesYaml -->  
 <!-- /40-NotesYaml -->  
 <!-- 50-DataModelHeader -->  
