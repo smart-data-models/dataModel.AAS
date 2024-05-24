@@ -24,33 +24,38 @@
 #         curl -X GET http://localhost:1026/ngsi-ld/v1/entities?local=true&limit=1000
 #         
 #         # now the python code you can use to insert some value in the context broker according to the data model
+#         # Version Warning! 
+#         # This code is designed to work with the version 0.8 of pysmartdatamodels or later
+#         # to work with earlier version you need to replace the import instruction for
+#         # from pysmartdatamodels import pysmartdatamodels as sdm
 #         
-from pysmartdatamodels import pysmartdatamodels as sdm
+#         
+import pysmartdatamodels as sdm
 import subprocess
 serverUrl = "http://localhost:1026" # supposed that your broker is installed in localhost. Edit to match your configuration
 dataModel = "I4SubmodelElementProperty"
 subject = "dataModel.AAS"
-idShort = "{'type': 'Property', 'value': 'VIResults'}"
-attribute = "idShort"
-value = idShort
+category = "PARAMETER"
+attribute = "category"
+value = category
 # The next line creates the query for inserting this attribute in a NGSI-LD context broker if the attribute does not exist it creates it
 print(sdm.update_broker(dataModel, subject, attribute, value, serverUrl=serverUrl, updateThenCreate=True))
 
-refI4AASId = "{'type': 'Property', 'value': 'urn:ngsi-v2:RAMI40:I4AAS:MRobotVI:AASMRobotVI'}"
-attribute = "refI4AASId"
-value = refI4AASId
+constraints = []
+attribute = "constraints"
+value = constraints
 # The next line creates the query for inserting this attribute in a NGSI-LD context broker if the attribute does not exist it creates it
 print(sdm.update_broker(dataModel, subject, attribute, value, serverUrl=serverUrl, updateThenCreate=True))
 
-refI4AssetId = "{'type': 'Property', 'value': 'urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI'}"
-attribute = "refI4AssetId"
-value = refI4AssetId
+descriptions = [{'language': 'en', 'text': 'Telling about the overall status of the robot'}]
+attribute = "descriptions"
+value = descriptions
 # The next line creates the query for inserting this attribute in a NGSI-LD context broker if the attribute does not exist it creates it
 print(sdm.update_broker(dataModel, subject, attribute, value, serverUrl=serverUrl, updateThenCreate=True))
 
-refI4SubmodelId = "{'type': 'Property', 'value': 'urn:ngsi-v2:RAMI40:I4Submodel:OperationalData:AASMRobotVI'}"
-attribute = "refI4SubmodelId"
-value = refI4SubmodelId
+hasDataSpecification = []
+attribute = "hasDataSpecification"
+value = hasDataSpecification
 # The next line creates the query for inserting this attribute in a NGSI-LD context broker if the attribute does not exist it creates it
 print(sdm.update_broker(dataModel, subject, attribute, value, serverUrl=serverUrl, updateThenCreate=True))
 
