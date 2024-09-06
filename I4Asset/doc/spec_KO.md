@@ -8,7 +8,7 @@
 <!-- /15-License -->  
 <!-- 20-Description -->  
 글로벌 설명: **IDTA-01001-3-0에 기반하여, 지정된 AAS에 연결된 자산 -인스턴스-를 RAMI4.0의 일반 자산 관리 셸 - AAS - 구성 요소로 정의합니다**.  
-버전: 0.0.1  
+버전: 0.0.2  
 <!-- /20-Description -->  
 <!-- 30-PropertiesList -->  
 
@@ -27,7 +27,7 @@
 	- `version[string]`: AAS 버전 번호는 사양 릴리스에 따른 번호입니다.    
 - `alternateName[string]`: 이 항목의 대체 이름  - `areaServed[string]`: 서비스 또는 제공 품목이 제공되는 지리적 영역  . Model: [https://schema.org/Text](https://schema.org/Text)- `assetIdentificationModelRef[object]`: 자산은 일반적으로 일련 번호, RFID 코드 등과 같은 여러 가지 식별 속성으로 표현될 수 있습니다. 이러한 로컬 식별 속성은 자산 식별 하위 모델에 정의됩니다.  	- `keys[array]`: 에셋 인스턴스에 대한 키    
 - `billOfMaterialRef[object]`: 복합 자산은 다른 엔티티와 자산으로 구성됩니다. 자산의 일부인 이러한 엔티티와 자산은 자재 명세서에 명시되어 있습니다.  	- `keys[array]`: 시맨틱 ID의 키    
-- `category[string]`: 카테고리는 AAS의 클래스에 대한 추가 메타 정보를 제공하는 값입니다.  - `dataProvider[string]`: 조화된 데이터 엔티티의 공급자를 식별하는 일련의 문자  - `dateCreated[date-time]`: 엔티티 생성 타임스탬프. 이는 일반적으로 스토리지 플랫폼에서 할당합니다.  - `dateModified[date-time]`: 엔티티의 마지막 수정 타임스탬프입니다. 이는 일반적으로 스토리지 플랫폼에서 할당합니다.  - `description[string]`: 이 항목에 대한 설명  - `descriptions[array]`: 다른 언어로 된 자세한 지식 추가하기  - `hasDataSpecification[array]`: 데이터 사양은 자산이 가질 수 있는 추가 속성을 정의합니다. RAMI4.0 사양  - `id[*]`: 엔티티의 고유 식별자  - `idShort[string]`: RAMI 인스턴스의 짧은 ID(이름)  - `identification[object]`: AAS -자산- 인스턴스 개체 식별  	- `id[uri]`: 하나의 RAMI 인스턴스를 다른 인스턴스와 명확하게 구분하는 신원 정보    
+- `category[string]`: 카테고리는 AAS의 클래스에 대한 추가 메타 정보를 제공하는 값입니다.  - `dataProvider[string]`: 조화된 데이터 엔티티의 공급자를 식별하는 일련의 문자  - `dateCreated[date-time]`: 엔티티 생성 타임스탬프. 이는 일반적으로 스토리지 플랫폼에서 할당합니다.  - `dateModified[date-time]`: 엔티티의 마지막 수정 타임스탬프입니다. 이는 일반적으로 스토리지 플랫폼에서 할당합니다.  - `description[string]`: 이 항목에 대한 설명  - `descriptions[array]`: 다른 언어로 자세한 지식을 추가하려면  - `hasDataSpecification[array]`: 데이터 사양은 자산이 가질 수 있는 추가 속성을 정의합니다. RAMI4.0 사양  - `id[*]`: 엔티티의 고유 식별자  - `idShort[string]`: RAMI 인스턴스의 짧은 ID(이름)  - `identification[object]`: AAS -자산- 인스턴스 개체 식별  	- `id[uri]`: 하나의 RAMI 인스턴스를 다른 인스턴스와 명확하게 구분하는 신원 정보    
 	- `idType[string]`: 식별자 유형(예: IRI 또는 IRD)    
 - `kind[string]`: 스키마의 종류. 이것은 인스턴스  - `location[*]`: 항목에 대한 지오숀 참조입니다. 포인트, 라인스트링, 다각형, 멀티포인트, 멀티라인스트링 또는 멀티폴리곤일 수 있습니다.  - `modelType[object]`: IDTA에 따른 인스턴스 모델 유형  	- `name[string]`: 참조된 항목의 유형    
 - `name[string]`: 이 항목의 이름  - `owner[array]`: 소유자의 고유 ID를 참조하는 JSON 인코딩된 문자 시퀀스가 포함된 목록입니다.  - `seeAlso[*]`: 항목에 대한 추가 리소스를 가리키는 URL 목록  - `source[string]`: 엔티티 데이터의 원본 소스를 URL로 제공하는 문자 시퀀스입니다. 소스 공급자의 정규화된 도메인 이름 또는 소스 개체에 대한 URL을 사용하는 것이 좋습니다.  - `type[string]`: RAMI4.0 I4Asset NGSI 엔티티 유형이어야 합니다.  <!-- /30-PropertiesList -->  
@@ -132,7 +132,8 @@ I4Asset:
         keys:    
           description: keys for the asset instance    
           items:    
-            - properties:    
+            - description: 'Property. object containing the properties type, local, value, index and idtype'    
+              properties:    
                 idType:    
                   description: Property. idType of the item    
                   type: string    
@@ -143,9 +144,10 @@ I4Asset:
                   description: Property. True if this is local item. False if not    
                   type: boolean    
                 type:    
+                  description: Property. Type of the object inside the keys of the assetIdentificationModelRef    
                   type: string    
                 value:    
-                  description: Property. Value of the item    
+                  description: Property. Value of the item of the object    
                   type: string    
               type: object    
           type: array    
@@ -160,20 +162,22 @@ I4Asset:
         keys:    
           description: Keys for the Semantic ID    
           items:    
-            - properties:    
+            - description: 'Property. object containing the properties type, local, value, index and idtype'    
+              properties:    
                 idType:    
                   description: Property. idType of the item    
                   type: string    
                 index:    
-                  description: Property. Order of the item    
+                  description: Property. Order of the item in the object    
                   type: integer    
                 local:    
-                  description: Property. Whether if the item is local    
+                  description: Property. Whether the item is local. False if not    
                   type: boolean    
                 type:    
+                  description: Property. Type of the object inside the keys of the billOfMaterialRef    
                   type: string    
                 value:    
-                  description: Property. Value of the item    
+                  description: Property. Value of the item of the object    
                   type: string    
               type: object    
           type: array    
@@ -212,6 +216,7 @@ I4Asset:
     descriptions:    
       description: For adding detailed knowledge in different languages    
       items:    
+        description: object containing the properties language and text    
         properties:    
           language:    
             description: Substring identifying the language. Acronym according to ISO 639-1    
@@ -224,6 +229,8 @@ I4Asset:
             x-ngsi:    
               type: Property    
         type: object    
+        x-ngsi:    
+          type: Property    
       type: array    
       x-ngsi:    
         type: Property    
@@ -522,7 +529,7 @@ I4Asset:
   x-license-url: https://github.com/smart-data-models/dataModel.AAS/blob/master/I4Asset/LICENSE.md    
   x-model-schema: https://smart-data-models.github.io/dataModel.AAS/I4Asset/schema.json    
   x-model-tags: Corosect    
-  x-version: 0.0.1    
+  x-version: 0.0.2    
 ```  
 </details>    
 <!-- /60-ModelYaml -->  
@@ -576,7 +583,6 @@ I4Asset:
         "idType": "IRI",  
         "id": "urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI"  
     },  
-    "idshort": "Asset",  
     "kind": "Instance",  
     "modelType": {  
         "name": "Asset"  
@@ -662,11 +668,6 @@ I4Asset:
       },  
       "metadata": {}  
   },  
-  "idshort": {  
-      "type": "Text",  
-      "value": "Asset",  
-      "metadata": {}  
-  },  
   "kind": {  
       "type": "Text",  
       "value": "Instance",  
@@ -728,7 +729,6 @@ I4Asset:
     "idType": "IRI",  
     "id": "urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI"  
   },  
-  "idshort": "Asset",  
   "kind": "Instance",  
   "modelType": {  
     "name": "Asset"  
@@ -808,10 +808,6 @@ I4Asset:
       "idType": "IRI",  
       "id": "urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI"  
     }  
-  },  
-  "idshort": {  
-    "type": "Property",  
-    "value": "Asset"  
   },  
   "kind": {  
     "type": "Property",  
