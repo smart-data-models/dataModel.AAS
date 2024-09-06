@@ -132,7 +132,8 @@ I4Asset:
         keys:    
           description: keys for the asset instance    
           items:    
-            - properties:    
+            - description: 'Property. object containing the properties type, local, value, index and idtype'    
+              properties:    
                 idType:    
                   description: Property. idType of the item    
                   type: string    
@@ -143,9 +144,10 @@ I4Asset:
                   description: Property. True if this is local item. False if not    
                   type: boolean    
                 type:    
+                  description: Property. Type of the object inside the keys of the assetIdentificationModelRef    
                   type: string    
                 value:    
-                  description: Property. Value of the item    
+                  description: Property. Value of the item of the object    
                   type: string    
               type: object    
           type: array    
@@ -160,20 +162,22 @@ I4Asset:
         keys:    
           description: Keys for the Semantic ID    
           items:    
-            - properties:    
+            - description: 'Property. object containing the properties type, local, value, index and idtype'    
+              properties:    
                 idType:    
                   description: Property. idType of the item    
                   type: string    
                 index:    
-                  description: Property. Order of the item    
+                  description: Property. Order of the item in the object    
                   type: integer    
                 local:    
-                  description: Property. Whether if the item is local    
+                  description: Property. Whether the item is local. False if not    
                   type: boolean    
                 type:    
+                  description: Property. Type of the object inside the keys of the billOfMaterialRef    
                   type: string    
                 value:    
-                  description: Property. Value of the item    
+                  description: Property. Value of the item of the object    
                   type: string    
               type: object    
           type: array    
@@ -212,6 +216,7 @@ I4Asset:
     descriptions:    
       description: For adding detailed knowledge in different languages    
       items:    
+        description: object containing the properties language and text    
         properties:    
           language:    
             description: Substring identifying the language. Acronym according to ISO 639-1    
@@ -224,6 +229,8 @@ I4Asset:
             x-ngsi:    
               type: Property    
         type: object    
+        x-ngsi:    
+          type: Property    
       type: array    
       x-ngsi:    
         type: Property    
@@ -522,7 +529,7 @@ I4Asset:
   x-license-url: https://github.com/smart-data-models/dataModel.AAS/blob/master/I4Asset/LICENSE.md    
   x-model-schema: https://smart-data-models.github.io/dataModel.AAS/I4Asset/schema.json    
   x-model-tags: Corosect    
-  x-version: 0.0.1    
+  x-version: 0.0.2    
 ```  
 </details>    
 <!-- /60-ModelYaml -->  
@@ -576,7 +583,6 @@ I4Asset:
         "idType": "IRI",  
         "id": "urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI"  
     },  
-    "idshort": "Asset",  
     "kind": "Instance",  
     "modelType": {  
         "name": "Asset"  
@@ -662,11 +668,6 @@ I4Asset:
       },  
       "metadata": {}  
   },  
-  "idshort": {  
-      "type": "Text",  
-      "value": "Asset",  
-      "metadata": {}  
-  },  
   "kind": {  
       "type": "Text",  
       "value": "Instance",  
@@ -728,7 +729,6 @@ I4Asset:
     "idType": "IRI",  
     "id": "urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI"  
   },  
-  "idshort": "Asset",  
   "kind": "Instance",  
   "modelType": {  
     "name": "Asset"  
@@ -808,10 +808,6 @@ I4Asset:
       "idType": "IRI",  
       "id": "urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI"  
     }  
-  },  
-  "idshort": {  
-    "type": "Property",  
-    "value": "Asset"  
   },  
   "kind": {  
     "type": "Property",  
