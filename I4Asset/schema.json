@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "$schemaVersion": "0.0.1",
+  "$schemaVersion": "0.0.2",
   "modelTags": "Corosect",
   "$id": "https://smart-data-models.github.io/dataModel.AAS/I4Asset/schema.json",
   "title": "Smart Data Models - RAMI4.0 Asset Administration Shell -Asset- Generic schema",
@@ -47,9 +47,11 @@
               "items": [
                 {
                   "type": "object",
+                  "description": "Property. object containing the properties type, local, value, index and idtype",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Property. Type of the object inside the keys of the assetIdentificationModelRef"
                     },
                     "local": {
                       "type": "boolean",
@@ -83,9 +85,11 @@
               "items": [
                 {
                   "type": "object",
+                  "description": "Property. object containing the properties type, local, value, index and idtype",
                   "properties": {
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Property. Type of the object inside the keys of the billOfMaterialRef"
                     },
                     "local": {
                       "type": "boolean",
@@ -169,6 +173,7 @@
           "items": [
             {
               "type": "object",
+              "description": "Property. object containing the properties language and text",
               "properties": {
                 "language": {
                   "type": "string",

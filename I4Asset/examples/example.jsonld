@@ -40,7 +40,6 @@
     "idType": "IRI",
     "id": "urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI"
   },
-  "idshort": "Asset",
   "kind": "Instance",
   "modelType": {
     "name": "Asset"

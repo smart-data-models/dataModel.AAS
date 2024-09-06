@@ -72,11 +72,6 @@
       },
       "metadata": {}
   },
-  "idshort": {
-      "type": "Text",
-      "value": "Asset",
-      "metadata": {}
-  },
   "kind": {
       "type": "Text",
       "value": "Instance",

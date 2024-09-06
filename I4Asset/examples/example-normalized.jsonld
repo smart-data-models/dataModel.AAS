@@ -64,10 +64,6 @@
       "id": "urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI"
     }
   },
-  "idshort": {
-    "type": "Property",
-    "value": "Asset"
-  },
   "kind": {
     "type": "Property",
     "value": "Instance"
