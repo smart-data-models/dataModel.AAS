@@ -27,7 +27,7 @@
 	- `version[string]`: Die AAS-Versionsnummer ist die Nummer, die der Veröffentlichung der Spezifikation entspricht.    
 - `alternateName[string]`: Ein alternativer Name für diesen Artikel  - `areaServed[string]`: Das geografische Gebiet, in dem eine Dienstleistung oder ein angebotener Artikel erbracht wird  . Model: [https://schema.org/Text](https://schema.org/Text)- `assetIdentificationModelRef[object]`: Ein Wirtschaftsgut kann in der Regel durch verschiedene Identifizierungseigenschaften wie z. B. die Seriennummer, seinen RFID-Code usw. dargestellt werden. Solche lokalen Identifikationseigenschaften werden im Teilmodell "Asset-Identifikation" definiert  	- `keys[array]`: Schlüssel für die Asset-Instanz    
 - `billOfMaterialRef[object]`: Ein komplexes Wirtschaftsgut setzt sich aus anderen Einheiten und Wirtschaftsgütern zusammen. Diese Einheiten und Vermögenswerte, die Teil der Anlage sind, werden in der Stückliste angegeben  	- `keys[array]`: Schlüssel für die Semantische ID    
-- `category[string]`: Die Kategorie ist ein Wert, der weitere Metainformationen über die Klasse des AAS enthält  - `dataProvider[string]`: Eine Folge von Zeichen zur Identifizierung des Anbieters der harmonisierten Dateneinheit  - `dateCreated[date-time]`: Zeitstempel der Entitätserstellung. Dieser wird normalerweise von der Speicherplattform zugewiesen  - `dateModified[date-time]`: Zeitstempel der letzten Änderung der Entität. Dieser wird in der Regel von der Speicherplattform vergeben  - `description[string]`: Eine Beschreibung dieses Artikels  - `descriptions[array]`: Zum Hinzufügen detaillierter Kenntnisse in verschiedenen Sprachen  - `hasDataSpecification[array]`: Die Datenspezifikation definiert die zusätzlichen Attribute, die ein Asset haben kann. RAMI4.0 Spezifikation  - `id[*]`: Eindeutiger Bezeichner der Entität  - `idShort[string]`: Kurze ID (Name) der RAMI-Instanz  - `identification[object]`: Identifizierung des Objekts AAS -Asset- Instance  	- `id[uri]`: Identitätsinformationen, die eine RAMI-Instanz eindeutig von einer anderen unterscheiden    
+- `category[string]`: Die Kategorie ist ein Wert, der weitere Metainformationen über die Klasse des AAS enthält  - `dataProvider[string]`: Eine Folge von Zeichen zur Identifizierung des Anbieters der harmonisierten Dateneinheit  - `dateCreated[date-time]`: Zeitstempel der Entitätserstellung. Dieser wird normalerweise von der Speicherplattform zugewiesen  - `dateModified[date-time]`: Zeitstempel der letzten Änderung der Entität. Dieser wird in der Regel von der Speicherplattform vergeben  - `description[string]`: Eine Beschreibung dieses Artikels  - `descriptions[array]`: Zur Ergänzung der Detailkenntnisse in verschiedenen Sprachen  - `hasDataSpecification[array]`: Die Datenspezifikation definiert die zusätzlichen Attribute, die ein Asset haben kann. RAMI4.0 Spezifikation  - `id[*]`: Eindeutiger Bezeichner der Entität  - `idShort[string]`: Kurze ID (Name) der RAMI-Instanz  - `identification[object]`: Identifizierung des Objekts AAS -Asset- Instance  	- `id[uri]`: Identitätsinformationen, die eine RAMI-Instanz eindeutig von einer anderen unterscheiden    
 	- `idType[string]`: Typ des Identifikators, z. B. IRI oder IRD    
 - `kind[string]`: Art des Schemas. Dies ist auf die Instanz beschränkt  - `location[*]`: Geojson-Referenz auf das Element. Es kann Punkt, LineString, Polygon, MultiPoint, MultiLineString oder MultiPolygon sein  - `modelType[object]`: Instanzmodelltyp nach IDTA  	- `name[string]`: Typ des referenzierten Artikels    
 - `name[string]`: Der Name dieses Artikels  - `owner[array]`: Eine Liste mit einer JSON-kodierten Zeichenfolge, die auf die eindeutigen Kennungen der Eigentümer verweist  - `seeAlso[*]`: Liste von URLs, die auf zusätzliche Ressourcen zu dem Artikel verweisen  - `source[string]`: Eine Folge von Zeichen, die die ursprüngliche Quelle der Entitätsdaten als URL angibt. Empfohlen wird der vollständig qualifizierte Domänenname des Quellanbieters oder die URL des Quellobjekts.  - `type[string]`: Es muss ein RAMI4.0 I4Asset NGSI Entitätstyp sein  <!-- /30-PropertiesList -->  
@@ -132,7 +132,8 @@ I4Asset:
         keys:    
           description: keys for the asset instance    
           items:    
-            - properties:    
+            - description: 'Property. object containing the properties type, local, value, index and idtype'    
+              properties:    
                 idType:    
                   description: Property. idType of the item    
                   type: string    
@@ -143,9 +144,10 @@ I4Asset:
                   description: Property. True if this is local item. False if not    
                   type: boolean    
                 type:    
+                  description: Property. Type of the object inside the keys of the assetIdentificationModelRef    
                   type: string    
                 value:    
-                  description: Property. Value of the item    
+                  description: Property. Value of the item of the object    
                   type: string    
               type: object    
           type: array    
@@ -160,20 +162,22 @@ I4Asset:
         keys:    
           description: Keys for the Semantic ID    
           items:    
-            - properties:    
+            - description: 'Property. object containing the properties type, local, value, index and idtype'    
+              properties:    
                 idType:    
                   description: Property. idType of the item    
                   type: string    
                 index:    
-                  description: Property. Order of the item    
+                  description: Property. Order of the item in the object    
                   type: integer    
                 local:    
-                  description: Property. Whether if the item is local    
+                  description: Property. Whether the item is local. False if not    
                   type: boolean    
                 type:    
+                  description: Property. Type of the object inside the keys of the billOfMaterialRef    
                   type: string    
                 value:    
-                  description: Property. Value of the item    
+                  description: Property. Value of the item of the object    
                   type: string    
               type: object    
           type: array    
@@ -212,6 +216,7 @@ I4Asset:
     descriptions:    
       description: For adding detailed knowledge in different languages    
       items:    
+        description: object containing the properties language and text    
         properties:    
           language:    
             description: Substring identifying the language. Acronym according to ISO 639-1    
@@ -224,6 +229,8 @@ I4Asset:
             x-ngsi:    
               type: Property    
         type: object    
+        x-ngsi:    
+          type: Property    
       type: array    
       x-ngsi:    
         type: Property    
@@ -522,7 +529,7 @@ I4Asset:
   x-license-url: https://github.com/smart-data-models/dataModel.AAS/blob/master/I4Asset/LICENSE.md    
   x-model-schema: https://smart-data-models.github.io/dataModel.AAS/I4Asset/schema.json    
   x-model-tags: Corosect    
-  x-version: 0.0.1    
+  x-version: 0.0.2    
 ```  
 </details>    
 <!-- /60-ModelYaml -->  
@@ -576,7 +583,6 @@ I4Asset:
         "idType": "IRI",  
         "id": "urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI"  
     },  
-    "idshort": "Asset",  
     "kind": "Instance",  
     "modelType": {  
         "name": "Asset"  
@@ -662,11 +668,6 @@ I4Asset:
       },  
       "metadata": {}  
   },  
-  "idshort": {  
-      "type": "Text",  
-      "value": "Asset",  
-      "metadata": {}  
-  },  
   "kind": {  
       "type": "Text",  
       "value": "Instance",  
@@ -728,7 +729,6 @@ I4Asset:
     "idType": "IRI",  
     "id": "urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI"  
   },  
-  "idshort": "Asset",  
   "kind": "Instance",  
   "modelType": {  
     "name": "Asset"  
@@ -808,10 +808,6 @@ I4Asset:
       "idType": "IRI",  
       "id": "urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI"  
     }  
-  },  
-  "idshort": {  
-    "type": "Property",  
-    "value": "Asset"  
   },  
   "kind": {  
     "type": "Property",  
