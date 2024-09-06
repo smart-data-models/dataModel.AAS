@@ -59,7 +59,7 @@
                     },
                     "value": {
                       "type": "string",
-                      "description": "Property. Value of the item"
+                      "description": "Property. Value of the item of the object"
                     },
                     "index": {
                       "type": "integer",
@@ -93,15 +93,15 @@
                     },
                     "local": {
                       "type": "boolean",
-                      "description": "Property. Whether if the item is local"
+                      "description": "Property. Whether the item is local. False if not"
                     },
                     "value": {
                       "type": "string",
-                      "description": "Property. Value of the item"
+                      "description": "Property. Value of the item of the object"
                     },
                     "index": {
                       "type": "integer",
-                      "description": "Property. Order of the item"
+                      "description": "Property. Order of the item in the object"
                     },
                     "idType": {
                       "type": "string",
