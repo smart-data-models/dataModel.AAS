@@ -1,10 +1,12 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$schemaVersion": "0.3.4",
-  "modelTags": "IUDX",
-  "$id": "https://smart-data-models.github.io/dataModel.Weather/WeatherObserved/schema.json",
-  "title": "Weather Observed schema - Smart Data Models",
-  "description": "An observation of weather conditions at a certain place and time. This data model has been developed in cooperation with mobile operators and the GSMA.",
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.2",
+  "modelTags": "Corosect",
+  "$id": "https://smart-data-models.github.io/dataModel.AAS/I4Asset/schema.json",
+  "title": "Smart Data Models - RAMI4.0 Asset Administration Shell -Asset- Generic schema",
+  "description": "Based on IDTA-01001-3-0, defines the Asset -instance- linked to a given AAS a generic Asset Administration Shell - AAS -  component of the RAMI4.0",
+  "derivedFrom": "https://industrialdigitaltwin.org/en/wp-content/uploads/sites/2/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf",
+  "license": "",
   "type": "object",
   "allOf": [
     {
@@ -14,132 +16,182 @@
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
     {
-      "$ref": "https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-Commons"
-    },
-    {
       "properties": {
         "type": {
           "type": "string",
           "enum": [
-            "WeatherObserved"
+            "I4Asset"
           ],
-          "description": "Property. NGSI Entity type. It has to be WeatherObserved"
+          "description": "Property. It has to be RAMI4.0 I4Asset NGSI Entity type"
         },
-        "dateObserved": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/dateObserved"
-        },
-        "precipitation": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Amount of water rain registered. Units:'Liters per square meter'. "
-        },
-        "solarRadiation": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. The solar radiation observed measured in Watts per square. Units:'w/m2'"
-        },
-        "directIrradiation": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Direct irradiance is the part of the solar irradiance that directly reaches a surface. Units:'w/m2'"
-        },
-        "diffuseIrradiation": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Diffuse irradiance is the part of the solar irradiance that is scattered by the atmosphere. Units:'w/m2'"
-        },
-        "pressureTendency": {
-          "oneOf": [
-            {
-              "type": "string",
-              "enum": [
-                "falling",
-                "raising",
-                "steady"
-              ]
-            },
-            {
-              "type": "number"
+        "hasDataSpecification": {
+          "type": "array",
+          "description": "Property. Data specification defines the additional attributes an asset may have. RAMI4.0 specification",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "Property. Link, url or description of the specified data"
+              }
             }
-          ],
-          "description": "Property. Enum:'falling, raising, steady'. Is the pressure rising or falling? It can be expressed in quantitative terms or qualitative terms"
+          }
         },
-        "dewPoint": {
-          "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Units:'Celsius degrees'. The dew point encoded as a number. Observed temperature to which air must be cooled to become saturated with water vapor"
+        "assetIdentificationModelRef": {
+          "type": "object",
+          "description": "Property. An asset typically may be represented by several different identification properties like for example the serial number, its RFID code etc. Such local identification properties are defined in the asset identification submodel",
+          "properties": {
+            "keys": {
+              "type": "array",
+              "description": "Property. keys for the asset instance",
+              "items": [
+                {
+                  "type": "object",
+                  "description": "Property. object containing the properties type, local, value, index and idtype",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Property. Type of the object inside the keys of the assetIdentificationModelRef"
+                    },
+                    "local": {
+                      "type": "boolean",
+                      "description": "Property. True if this is local item. False if not"
+                    },
+                    "value": {
+                      "type": "string",
+                      "description": "Property. Value of the item of the object"
+                    },
+                    "index": {
+                      "type": "integer",
+                      "description": "Property. Integer related to the item"
+                    },
+                    "idType": {
+                      "type": "string",
+                      "description": "Property. idType of the item"
+                    }
+                  }
+                }
+              ]
+            }
+          }
         },
-        "refDevice": {
-          "anyOf": [
-            {
+        "billOfMaterialRef": {
+          "type": "object",
+          "description": "Property. A complex asset is composed out of other entities and assets. These entities and assets being part of the asset are specified in the bill of material",
+          "properties": {
+            "keys": {
+              "type": "array",
+              "description": "Property. Keys for the Semantic ID",
+              "items": [
+                {
+                  "type": "object",
+                  "description": "Property. object containing the properties type, local, value, index and idtype",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Property. Type of the object inside the keys of the billOfMaterialRef"
+                    },
+                    "local": {
+                      "type": "boolean",
+                      "description": "Property. Whether the item is local. False if not"
+                    },
+                    "value": {
+                      "type": "string",
+                      "description": "Property. Value of the item of the object"
+                    },
+                    "index": {
+                      "type": "integer",
+                      "description": "Property. Order of the item in the object"
+                    },
+                    "idType": {
+                      "type": "string",
+                      "description": "Property. idType of the item"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "identification": {
+          "type": "object",
+          "description": "Property. Identification of the AAS -Asset- Instance object",
+          "properties": {
+            "idType": {
               "type": "string",
-              "minLength": 1,
-              "maxLength": 256,
-              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-              "description": "Property. Identifier format of any NGSI entity"
+              "description": "Property. Type of the Identifier, eg.IRI or IRD"
             },
-            {
+            "id": {
               "type": "string",
               "format": "uri",
-              "description": "Property. Identifier format of any NGSI entity"
+              "description": "Property. Identity information that unambiguously distinguishes one RAMI Instance from another one"
             }
-          ],
-          "description": "Relationship. Model:'https://schema.org/URL'. A reference to the device(s) which captured this observation"
+          }
         },
-        "streamGauge": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. The water level surface elevation observed by Hydrometric measurement sensors, namely a [Stream Gauge](https://en.wikipedia.org/wiki/Stream_gauge) expressed in centimeters. Units:'centimeters'"
-        },
-        "snowHeight": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. The snow height observed by generic snow depth measurement sensors, expressed in centimeters. Units:'centimeters'"
-        },
-        "uVIndexMax": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. The maximum UV index for the period, based on the World Health Organization's UV Index measure. [http://www.who.int/uv/intersunprogramme/activities/uv_index/en/](http://www.who.int/uv/intersunprogramme/activities/uv_index/en/) the values between 1 and 11 are the valid range for the index. The value 0 is for describing that no signal is detected so no value is stored"
-        },
-        "aqiMajorPollutant": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Major pollutant in the Air Quality Index (AQI)"
-        },
-        "aqiMajorPollutantForecast": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Forecasted major air pollutant in the Air Quality Index (AQI) over a certain duration in future"
-        },
-        "airTemperatureForecast": {
-          "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Forecasted value of air temperature over a certain duration in future"
-        },
-        "precipitationForecast": {
-          "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Forecasted rainfall over a certain duration in future"
-        },
-        "airQualityIndex": {
-          "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Air quality index is a number used to report the quality of the air on any given day"
-        },
-        "relativeHumidityForecast": {
-          "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Forecasted relative humidity (water vapour in air) over a certain duration in future"
-        },
-        "airQualityIndexForecast": {
-          "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Forecasted overall Air Quality Index (AQI) over a certain duration in future"
-        },
-        "airTemperatureTSA": {
+        "administration": {
           "type": "object",
-          "description": "Property. Air temperature time series aggregation",
-          "$ref": "https://smart-data-models.github.io/dataModel.Environment/Environment-schema.json#/definitions/TimeSeriesAggregation"
+          "description": "Property. Instance administration information",
+          "properties": {
+            "version": {
+              "type": "string",
+              "description": "Property. AAS version number is the number in line with release of specification"
+            },
+            "revision": {
+              "type": "string",
+              "description": "Property. AAS Revision number is the number in line with release of specification"
+            }
+          }
+        },
+        "idShort": {
+          "type": "string",
+          "description": "Property. Short id (name) of the RAMI Instance"
+        },
+        "category": {
+          "type": "string",
+          "description": "Property. The category is a value that gives further meta information w.r.t. to the class of the AAS"
+        },
+        "modelType": {
+          "type": "object",
+          "description": "Property. Instance model type according to IDTA",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Property. Type of the referenced item"
+            }
+          }
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "Instance"
+          ],
+          "description": "Property. Kind of the Schema. This is restricted to Instance"
+        },
+        "descriptions": {
+          "type": "array",
+          "description": "Property. For adding detailed knowledge in different languages",
+          "items": [
+            {
+              "type": "object",
+              "description": "Property. object containing the properties language and text",
+              "properties": {
+                "language": {
+                  "type": "string",
+                  "description": "Property. Substring identifying the language. Acronym according to ISO 639-1"
+                },
+                "text": {
+                  "type": "string",
+                  "description": "Property. Add the description text here"
+                }
+              }
+            }
+          ]
         }
       }
     }
   ],
   "required": [
     "id",
-    "type",
-    "dateObserved",
-    "location"
+    "type"
   ]
 }
