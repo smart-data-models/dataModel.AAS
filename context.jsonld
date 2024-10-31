@@ -16,7 +16,7 @@
         "assetIdentificationModelRef": "https://smartdatamodels.org/dataModel.AAS/assetIdentificationModelRef",
         "bbox": {
             "@container": "@list",
-            "@id": "geojson:bbox"
+            "@id": "https://purl.org/geojson/vocab#bbox"
         },
         "billOfMaterialRef": "https://smartdatamodels.org/dataModel.AAS/billOfMaterialRef",
         "category": "https://smartdatamodels.org/dataModel.AAS/category",
@@ -25,7 +25,7 @@
         "constraints": "https://smartdatamodels.org/dataModel.AAS/constraints",
         "coordinates": {
             "@container": "@list",
-            "@id": "geojson:coordinates"
+            "@id": "https://purl.org/geojson/vocab#coordinates"
         },
         "dataObjectType": "https://smartdatamodels.org/dataModel.AAS/dataObjectType",
         "dataProvider": "https://smartdatamodels.org/dataProvider",
@@ -50,7 +50,7 @@
         "kind": "https://smartdatamodels.org/dataModel.AAS/kind",
         "language": "https://smartdatamodels.org/dataModel.AAS/language",
         "local": "https://smartdatamodels.org/dataModel.AAS/local",
-        "location": "ngsi-ld:location",
+        "location": "https://uri.etsi.org/ngsi-ld/location",
         "messageType": "https://smartdatamodels.org/dataModel.AAS/messageType",
         "messages": "https://smartdatamodels.org/dataModel.AAS/messages",
         "modelType": "https://smartdatamodels.org/dataModel.AAS/modelType",
@@ -76,13 +76,13 @@
         "submodelElements": "https://smartdatamodels.org/dataModel.AAS/submodelElements",
         "submodels": "https://smartdatamodels.org/dataModel.AAS/submodels",
         "success": {
-            "@id": "ngsi-ld:success",
+            "@id": "https://uri.etsi.org/ngsi-ld/success",
             "@type": "@id"
         },
         "text": "https://smartdatamodels.org/dataModel.AAS/text",
-        "timeout": "ngsi-ld:timeout",
+        "timeout": "https://uri.etsi.org/ngsi-ld/timeout",
         "type": "@type",
-        "value": "ngsi-ld:hasValue",
+        "value": "https://uri.etsi.org/ngsi-ld/hasValue",
         "valueId": "https://smartdatamodels.org/dataModel.AAS/valueId",
         "valueType": "https://smartdatamodels.org/dataModel.AAS/valueType",
         "version": "https://smartdatamodels.org/dataModel.AAS/version"
