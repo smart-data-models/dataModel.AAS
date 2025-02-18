@@ -7,7 +7,7 @@
 [文書は自動的に生成される](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
 <!-- /15-License -->  
 <!-- 20-Description -->  
-グローバルな説明**IDTA-01001-3-0に基づき、RAMI4.0の一般的なAsset Administration Shell - AAS - コンポーネントであるAASにリンクされたAsset -instanceを定義する。  
+グローバルな説明**IDTA-01001-3-0に基づき、RAMI4.0の一般的な資産管理シェル - AAS - コンポーネントである所定のAASにリンクされた資産 - インスタンスを定義する**。  
 バージョン: 0.0.1  
 <!-- /20-Description -->  
 <!-- 30-PropertiesList -->  
@@ -27,7 +27,7 @@
 	- `version[string]`: AASのバージョン番号は、仕様書のリリースに沿った番号です。    
 - `alternateName[string]`: この項目の別名  - `areaServed[string]`: サービスまたは提供品が提供される地理的地域  . Model: [https://schema.org/Text](https://schema.org/Text)- `assetIdentificationModelRef[object]`: 資産は通常、シリアル番号や RFID コードなど、複数の異なる識別プロパティで表されることがあります。このようなローカルな識別プロパティは資産識別サブモデルで定義されます。  	- `keys[array]`: アセットインスタンスのキー    
 - `billOfMaterialRef[object]`: 複合資産は、他の事業体や資産から構成される。資産の一部であるこれらの事業体や資産は、部品表で指定される。  	- `keys[array]`: セマンティックIDのキー    
-- `category[string]`: カテゴリは、AASのクラスに関するさらなるメタ情報を与える値である。  - `dataProvider[string]`: ハーモナイズされたデータ・エンティティの提供者を識別する一連の文字。  - `dateCreated[date-time]`: エンティティの作成タイムスタンプ。これは通常、ストレージプラットフォームによって割り当てられます。  - `dateModified[date-time]`: エンティティの最終変更のタイムスタンプ。これは通常、ストレージプラットフォームによって割り当てられる。  - `description[string]`: この商品の説明  - `descriptions[array]`: さまざまな言語の詳細な知識を追加する  - `hasDataSpecification[array]`: データ仕様は、アセットが持つ可能性のある追加属性を定義します。RAMI4.0仕様  - `id[*]`: エンティティの一意識別子  - `idShort[string]`: RAMI インスタンスの短い ID (名前)  - `identification[object]`: AAS -資産-インスタンスオブジェクトの識別  	- `id[uri]`: あるRAMIインスタンスと別のRAMIインスタンスを明確に区別する識別情報    
+- `category[string]`: カテゴリは、AASのクラスに関するさらなるメタ情報を与える値である。  - `dataProvider[string]`: ハーモナイズされたデータ・エンティティの提供者を識別する一連の文字。  - `dateCreated[date-time]`: エンティティの作成タイムスタンプ。これは通常、ストレージプラットフォームによって割り当てられます。  - `dateModified[date-time]`: エンティティの最終変更のタイムスタンプ。これは通常、ストレージプラットフォームによって割り当てられる。  - `description[string]`: この商品の説明  - `descriptions[array]`: 異なる言語の詳細な知識を追加する  - `hasDataSpecification[array]`: データ仕様は、アセットが持つ可能性のある追加属性を定義します。RAMI4.0仕様  - `id[*]`: エンティティの一意識別子  - `idShort[string]`: RAMI インスタンスの短い ID (名前)  - `identification[object]`: AAS -資産-インスタンスオブジェクトの識別  	- `id[uri]`: あるRAMIインスタンスと別のRAMIインスタンスを明確に区別する識別情報    
 	- `idType[string]`: 識別子のタイプ（例：IRIまたはIRD    
 - `kind[string]`: スキーマの種類。これはインスタンスに限定される。  - `location[*]`: アイテムへの Geojson 参照。Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon のいずれか。  - `modelType[object]`: IDTAによるインスタンス・モデル・タイプ  	- `name[string]`: 参照アイテムのタイプ    
 - `name[string]`: このアイテムの名前  - `owner[array]`: 所有者の固有IDを参照するJSONエンコードされた文字列を含むリスト。  - `seeAlso[*]`: アイテムに関する追加リソースを指すURIのリスト  - `source[string]`: エンティティ・データの元のソースを URL として示す一連の文字。ソース・プロバイダの完全修飾ドメイン名、またはソース・オブジェクトの URL を推奨する。  - `type[string]`: RAMI4.0 I4Asset NGSI Entity タイプでなければなりません。  <!-- /30-PropertiesList -->  
@@ -132,7 +132,8 @@ I4Asset:
         keys:    
           description: keys for the asset instance    
           items:    
-            - properties:    
+            - description: 'Property. object containing the properties type, local, value, index and idtype'    
+              properties:    
                 idType:    
                   description: Property. idType of the item    
                   type: string    
@@ -143,9 +144,10 @@ I4Asset:
                   description: Property. True if this is local item. False if not    
                   type: boolean    
                 type:    
+                  description: Property. Type of the object inside the keys of the assetIdentificationModelRef    
                   type: string    
                 value:    
-                  description: Property. Value of the item    
+                  description: Property. Value of the item of the object    
                   type: string    
               type: object    
           type: array    
@@ -160,20 +162,22 @@ I4Asset:
         keys:    
           description: Keys for the Semantic ID    
           items:    
-            - properties:    
+            - description: 'Property. object containing the properties type, local, value, index and idtype'    
+              properties:    
                 idType:    
                   description: Property. idType of the item    
                   type: string    
                 index:    
-                  description: Property. Order of the item    
+                  description: Property. Order of the item in the object    
                   type: integer    
                 local:    
-                  description: Property. Whether if the item is local    
+                  description: Property. Whether the item is local. False if not    
                   type: boolean    
                 type:    
+                  description: Property. Type of the object inside the keys of the billOfMaterialRef    
                   type: string    
                 value:    
-                  description: Property. Value of the item    
+                  description: Property. Value of the item of the object    
                   type: string    
               type: object    
           type: array    
@@ -212,6 +216,7 @@ I4Asset:
     descriptions:    
       description: For adding detailed knowledge in different languages    
       items:    
+        description: object containing the properties language and text    
         properties:    
           language:    
             description: Substring identifying the language. Acronym according to ISO 639-1    
@@ -224,6 +229,8 @@ I4Asset:
             x-ngsi:    
               type: Property    
         type: object    
+        x-ngsi:    
+          type: Property    
       type: array    
       x-ngsi:    
         type: Property    
@@ -522,7 +529,7 @@ I4Asset:
   x-license-url: https://github.com/smart-data-models/dataModel.AAS/blob/master/I4Asset/LICENSE.md    
   x-model-schema: https://smart-data-models.github.io/dataModel.AAS/I4Asset/schema.json    
   x-model-tags: Corosect    
-  x-version: 0.0.1    
+  x-version: 0.0.2    
 ```  
 </details>    
 <!-- /60-ModelYaml -->  
@@ -576,7 +583,6 @@ I4Asset:
         "idType": "IRI",  
         "id": "urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI"  
     },  
-    "idshort": "Asset",  
     "kind": "Instance",  
     "modelType": {  
         "name": "Asset"  
@@ -585,7 +591,7 @@ I4Asset:
 ```  
 </details>  
 #### I4Asset NGSI-v2 正規化例  
-以下は、正規化されたJSON-LDフォーマットのI4Assetの例である。これはNGSI-v2と互換性があり、オプションを使用しない場合、個々のエンティティのコンテキストデータを返します。  
+正規化されたJSON-LDフォーマットのI4Assetの例です。これはNGSI-v2と互換性があり、オプションを使用しない場合、個々のエンティティのコンテキストデータを返します。  
 <details><summary><strong>show/hide example</strong></summary>    
 ```json  
 {  
@@ -662,11 +668,6 @@ I4Asset:
       },  
       "metadata": {}  
   },  
-  "idshort": {  
-      "type": "Text",  
-      "value": "Asset",  
-      "metadata": {}  
-  },  
   "kind": {  
       "type": "Text",  
       "value": "Instance",  
@@ -728,7 +729,6 @@ I4Asset:
     "idType": "IRI",  
     "id": "urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI"  
   },  
-  "idshort": "Asset",  
   "kind": "Instance",  
   "modelType": {  
     "name": "Asset"  
@@ -808,10 +808,6 @@ I4Asset:
       "idType": "IRI",  
       "id": "urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI"  
     }  
-  },  
-  "idshort": {  
-    "type": "Property",  
-    "value": "Asset"  
   },  
   "kind": {  
     "type": "Property",  

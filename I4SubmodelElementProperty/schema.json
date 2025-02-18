@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
   "modelTags": "Corosect",
   "$id": "https://smart-data-models.github.io/dataModel.AAS/I4SubmodelElementProperty/schema.json",
@@ -39,14 +39,13 @@
         "hasDataSpecification": {
           "type": "array",
           "description": "Property. Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification",
-          "items":{
+          "items": {
             "type": "object",
             "description": "Property. Every element of the data specification",
             "properties": {
               "type": {
-                "type":"string",
+                "type": "string",
                 "description": "Property. Link, url or description of the specified data. DataSpecification template conformant to IEC61360"
-
               }
             }
           }
@@ -72,21 +71,19 @@
         "descriptions": {
           "type": "array",
           "description": "Property. For adding detailed knowledge about the Element in different languages",
-          "items":
-            {
-              "type": "object",
-              "properties": {
-                "language": {
-                  "type": "string",
-                  "description": "Property. Substring identifying the language. Acronym according to ISO 639-1"
-                },
-                "text": {
-                  "type": "string",
-                  "description": "Property. The Description text is filled here"
-                }
+          "items": {
+            "type": "object",
+            "properties": {
+              "language": {
+                "type": "string",
+                "description": "Property. Substring identifying the language. Acronym according to ISO 639-1"
+              },
+              "text": {
+                "type": "string",
+                "description": "Property. The Description text is filled here"
               }
             }
-
+          }
         },
         "semanticId": {
           "type": "object",
@@ -95,30 +92,28 @@
             "keys": {
               "type": "array",
               "description": "Property. Set of keys linked to the sematicID of the model in an object",
-              "items":
-                {
-                  "type": "object",
-                  "description": "Property. Every object containing the keys",
-                  "properties": {
-                    "local": {
-                      "type": "boolean",
-                      "description": "Property. Describes a local or not item"
-                    },
-                    "value": {
-                      "type": "string",
-                      "description": "Property. Describes/includes the corresponding value"
-                    },
-                    "index": {
-                      "type": "integer",
-                      "description": "Property. Integer value of the item"
-                    },
-                    "idType": {
-                      "type": "string",
-                      "description": "Property. References the ID of the type"
-                    }
+              "items": {
+                "type": "object",
+                "description": "Property. Every object containing the keys",
+                "properties": {
+                  "local": {
+                    "type": "boolean",
+                    "description": "Property. Describes a local or not item"
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "Property. Describes/includes the corresponding value"
+                  },
+                  "index": {
+                    "type": "integer",
+                    "description": "Property. Integer value of the item"
+                  },
+                  "idType": {
+                    "type": "string",
+                    "description": "Property. References the ID of the type"
                   }
                 }
-
+              }
             }
           }
         },
@@ -129,11 +124,11 @@
         "constraints": {
           "type": "array",
           "description": "Property. Constraints which tells which values can be taken simultaneously. RAMI4.0 Asset Administration Shell specification. Version 3.0RC02",
-          "items":{
+          "items": {
             "type": "object",
             "properties": {
               "type": {
-                "type":"string",
+                "type": "string",
                 "description": "Property. Link, url, constraint ID (AAS Version 3.0RC02) or description of the constrain to be applied"
               }
             }

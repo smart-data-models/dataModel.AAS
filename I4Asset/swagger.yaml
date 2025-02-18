@@ -11,7 +11,7 @@ info:
   description:  |
     Based on IDTA-01001-3-0, defines the Asset -instance- linked to a given AAS a generic Asset Administration Shell - AAS -  component of the RAMI4.0
   title: I4Asset
-  version: "0.0.1"
+  version: "0.0.2"
 openapi: "3.0.0"
 
 paths: 
