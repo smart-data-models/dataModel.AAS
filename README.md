@@ -14,6 +14,8 @@ The following entity types are available:
 
 - [I4SubmodelElementProperty](https://github.com/smart-data-models/dataModel.AAS/blob/master/I4SubmodelElementProperty/README.md). Based on IDTA-01001-3-0, maps a generic RAMI4.0 SubmodelElement representing a PROPERTY or attribute of a referenced AAS. RAMI4.0 Standard
 
+- [TimeSeries](https://github.com/smart-data-models/dataModel.AAS/blob/master/TimeSeries/README.md). Time Series can represent raw data, but can also represent main characteristics, textual descriptions or events in a concise way.
+
 
 
 ### Contributors
