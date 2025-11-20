@@ -7,33 +7,33 @@
 [document généré automatiquement](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
 <!-- /15-License -->  
 <!-- 20-Description -->  
-Description globale : **Basé sur IDTA-01001-3-0, décrit un SubmodelElement générique RAMI4.0 représentant une Capacité d'un Asset Administration Shell référencé**  
+Description globale : **Basé sur IDTA-01001-3-0, décrit un sous-élément de modèle générique RAMI4.0 représentant une Capacité d'une Coque d'Administration d'Actifs référencée**  
 version : 0.0.1  
 <!-- /20-Description -->  
 <!-- 30-PropertiesList -->  
 
 ## Liste de propriétés  
 
-Note : Si aucun type n'est spécifié pour un attribut, c'est parce qu'il pourrait avoir plusieurs types ou différents formats/modèles.  
+Si aucun type n'est spécifié pour un attribut, c'est parce qu'il pourrait avoir plusieurs types ou différents formats/modèles.  
 - `address[object]`: L'adresse postale  . Model: [https://schema.org/address](https://schema.org/address)	- `addressCountry[string]`: Le pays. Par exemple, l'Espagne.  . Model: [https://schema.org/addressCountry](https://schema.org/addressCountry)  
-	- `addressLocality[string]`: La localité où se trouve l'adresse postale, et qui est dans la région  . Model: [https://schema.org/addressLocality](https://schema.org/addressLocality)  
-	- `addressRegion[string]`: La région dans laquelle se trouve la localité, et qui est dans le pays  . Model: [https://schema.org/addressRegion](https://schema.org/addressRegion)  
-	- `district[string]`: Un district est un type de division administrative qui, dans certains pays, est géré par le gouvernement local.    
-	- `postOfficeBoxNumber[string]`: Le numéro de boîte postale pour les adresses de boîtes postales. Par exemple, 03578  . Model: [https://schema.org/postOfficeBoxNumber](https://schema.org/postOfficeBoxNumber)  
+	- `addressLocality[string]`: La localité dans laquelle se trouve l'adresse postale, et qui est dans la région  . Model: [https://schema.org/addressLocality](https://schema.org/addressLocality)  
+	- `addressRegion[string]`: La région où se situe la localité, et qui se trouve dans le pays.  . Model: [https://schema.org/addressRegion](https://schema.org/addressRegion)  
+	- `district[string]`: Un district est un type de division administrative qui, dans certains pays, est gérée par le gouvernement local.    
+	- `postOfficeBoxNumber[string]`: Le numéro de boîte postale pour les adresses de boîte postale. Par exemple, 03578.  . Model: [https://schema.org/postOfficeBoxNumber](https://schema.org/postOfficeBoxNumber)  
 	- `postalCode[string]`: Le code postal. Par exemple, 24004  . Model: [https://schema.org/https://schema.org/postalCode](https://schema.org/https://schema.org/postalCode)  
-	- `streetAddress[string]`: L'adresse  . Model: [https://schema.org/streetAddress](https://schema.org/streetAddress)  
-	- `streetNr[string]`: Numéro identifiant une propriété spécifique sur une voie publique    
-- `alternateName[string]`: Un autre nom pour cet article  - `areaServed[string]`: La zone géographique où un service ou un article proposé est fourni  . Model: [https://schema.org/Text](https://schema.org/Text)- `category[string]`: La catégorie est une valeur qui fournit des méta-informations complémentaires relativement à la classe de l'élément.  - `dataProvider[string]`: Une séquence de caractères identifiant le fournisseur de l'ententité de données harmonisée  - `dateCreated[date-time]`: Horodatage de création d'entité. Il sera généralement attribué par la plateforme de stockage.  - `dateModified[date-time]`: Horodatage de la dernière modification de l'entité. Il sera généralement attribué par la plateforme de stockage.  - `description[string]`: Une description de cet article  - `descriptions[array]`: Pour ajouter des informations détaillées sur l'élément dans différentes langues  - `hasDataSpecification[array]`: Élément qui peut être étendu au moyen de modèles de spécification de données. Un modèle de spécification de données définit un ensemble nommé d'attributs supplémentaires qu'un élément peut ou doit avoir. Spécification RAMI4.0  - `id[*]`: Identifiant unique de l'entité  - `idShort[string]`: L'identifiant abrégé est le nom (court) de l'SubmodelElement au sein de l'environnement RAMI40.  - `kind[string]`: Pour la distinction entre 'type' et 'instance', le terme 'kind' est utilisé.  - `location[*]`: Référence GeoJSON à l'élément. Il peut s'agir de Point, LineString, Polygon, MultiPoint, MultiLineString ou MultiPolygon.  - `modelType[object]`: Pour la distinction entre 'type' et 'instance', le terme 'kind' est utilisé  	- `name[string]`: Propriété de l'élément. Généralement, -Capacité- est définie pour ce type.    
-- `name[string]`: Le nom de cet article  - `owner[array]`: Une liste contenant une séquence de caractères encodée en JSON référençant les identifiants uniques du ou des propriétaire(s).  - `refI4AASId[string]`: Référence l'Asset Administration Shell racine dont cet élément de sous-modèle fait partie.  - `refI4AssetId[string]`: Fait référence à l'Actif racine auquel cet élément de sous-modèle appartient  - `refI4SubmodelId[string]`: Fait référence au sous-modèle racine auquel cet élément de sous-modèle appartient  - `seeAlso[*]`: liste d'URI pointant vers des ressources supplémentaires concernant l'élément  - `semanticId[object]`: Il fait référence à une source d'information externe, qui explique la formulation de l'élément de sous-modèle.  	- `keys[array]`: Clés pour l'ID sémantique    
-- `source[string]`: Une séquence de caractères indiquant la source originale des données de l'entité sous forme d'URL. Il est recommandé que ce soit le nom de domaine complet du fournisseur de la source, ou l'URL de l'objet source.  - `type[string]`: Il doit s'agir du type d'entité NGSI RAMI4.0 I4SubmodelElementCapability pour représenter un composant de Capacité de Sous-modèle de Jumeau Numérique AAS RAMI4.0.  <!-- /30-PropertiesList -->  
+	- `streetAddress[string]`: L'adresse postale  . Model: [https://schema.org/streetAddress](https://schema.org/streetAddress)  
+	- `streetNr[string]`: Numéro identifiant une propriété spécifique sur une voie publique.    
+- `alternateName[string]`: Un nom alternatif pour cet article  - `areaServed[string]`: La zone géographique où un service ou un article offert est fourni  . Model: [https://schema.org/Text](https://schema.org/Text)- `category[string]`: La catégorie est une valeur qui fournit des méta-informations supplémentaires concernant la classe de l'élément.  - `dataProvider[string]`: Une séquence de caractères identifiant le fournisseur de l'entité de données harmonisées  - `dateCreated[date-time]`: Horodatage de création de l'entité. Celui-ci sera généralement alloué par la plateforme de stockage.  - `dateModified[date-time]`: Horodatage de la dernière modification de l'entité. Celui-ci sera généralement attribué par la plateforme de stockage.  - `description[string]`: Une description de cet article  - `descriptions[array]`: Pour ajouter des informations détaillées sur l'élément dans différentes langues  - `hasDataSpecification[array]`: Élément qui peut être étendu en utilisant des modèles de spécification de données. Un modèle de spécification de données définit un ensemble nommé d'attributs supplémentaires qu'un élément peut ou doit avoir. Spécification RAMI4.0  - `id[*]`: Identifiant unique de l'entité  - `idShort[string]`: Le 'short id' est le nom abrégé du SubmodelElement au sein de l'environnement RAMI40.  - `kind[string]`: Pour la distinction entre 'type' et 'instance', le terme 'kind' est utilisé  - `location[*]`: Référence GeoJSON à l'objet. Il peut s'agir d'un Point, d'une LineString, d'un Polygon, d'un MultiPoint, d'une MultiLineString ou d'un MultiPolygon.  - `modelType[object]`: Pour la distinction entre « type » et « instance », le terme « kind » est utilisé.  	- `name[string]`: Propriété de l'élément. Généralement, -Capability- est défini pour ce type.    
+- `name[string]`: Le nom de cet article  - `owner[array]`: Une liste contenant une séquence de caractères encodée en JSON référençant les identifiants uniques du ou des propriétaires.  - `refI4AASId[string]`: Fait référence à l'Enveloppe d'Administration d'Actif racine à laquelle cet Élément de Sous-modèle appartient.  - `refI4AssetId[string]`: Fait référence à l'Actif racine auquel cet élément de sous-modèle appartient.  - `refI4SubmodelId[string]`: Référence le sous-modèle racine auquel cet élément de sous-modèle appartient.  - `seeAlso[*]`: liste d'URI pointant vers des ressources supplémentaires relatives à l'élément  - `semanticId[object]`: Cela se réfère à une source d'information externe, qui explique la formulation de l'élément de sous-modèle.  	- `keys[array]`: Clés pour l'identifiant sémantique    
+- `source[string]`: Une séquence de caractères indiquant la source originale des données de l'entité sous forme d'URL. Il est recommandé d'utiliser le nom de domaine entièrement qualifié du fournisseur de la source, ou l'URL de l'objet source.  - `type[string]`: Il doit s'agir du type d'entité NGSI RAMI4.0 I4SubmodelElementCapability pour représenter un composant de capacité de sous-modèle de jumeau numérique AAS RAMI4.0.  <!-- /30-PropertiesList -->  
 <!-- 35-RequiredProperties -->  
 Propriétés requises  
 - `id`  - `type`  <!-- /35-RequiredProperties -->  
 <!-- 40-NotesYaml -->  
 <!-- /40-NotesYaml -->  
 <!-- 50-DataModelHeader -->  
-## Description des propriétés du Modèle de Données  
-Trié par ordre alphabétique (cliquez pour plus de détails)  
+## Description des propriétés du modèle de données  
+Trié par ordre alphabétique (cliquez pour les détails)  
 <!-- /50-DataModelHeader -->  
 <!-- 60-ModelYaml -->  
 <details><summary><strong>full yaml details</strong></summary>    
@@ -524,8 +524,8 @@ I4SubmodelElementCapability:
 <!-- 70-MiddleNotes -->  
 <!-- /70-MiddleNotes -->  
 <!-- 80-Examples -->  
-## Exemples de charges utiles  
-#### Exemple de I4SubmodelElementCapability NGSI-v2 clés-valeurs  
+## Exemples de charges utiles    
+#### I4SubmodelElementCapability : Exemple de paires clé-valeur NGSI-v2    
 Voici un exemple d'un I4SubmodelElementCapability au format JSON-LD sous forme de paires clé-valeur. Ceci est compatible avec NGSI-v2 lors de l'utilisation de `options=keyValues` et renvoie les données de contexte d'une entité individuelle.  
 <details><summary><strong>show/hide example</strong></summary>    
 ```json  
@@ -560,8 +560,8 @@ I4SubmodelElementCapability:
 }  
 ```  
 </details>  
-#### I4SubmodelElementCapability NGSI-v2 Exemple normalisé  
-Voici un exemple de I4SubmodelElementCapability au format JSON-LD tel que normalisé. Ceci est compatible avec NGSI-v2 lorsqu'aucune option n'est utilisée et renvoie les données de contexte d'une entité individuelle.  
+I4SubmodelElementCapability : Exemple normalisé NGSI-v2  
+Voici un exemple de I4SubmodelElementCapability au format JSON-LD tel que normalisé. Ceci est compatible avec NGSI-v2 lorsqu'il n'utilise pas d'options et renvoie les données de contexte d'une entité individuelle.  
 <details><summary><strong>show/hide example</strong></summary>    
 ```json  
 {  
@@ -616,7 +616,7 @@ I4SubmodelElementCapability:
 }  
 ```  
 </details>  
-#### I4SubmodelElementCapability NGSI-LD Exemple de clés-valeurs  
+#### I4SubmodelElementCapability NGSI-LD clés-valeurs Exemple   
 Voici un exemple de I4SubmodelElementCapability au format JSON-LD sous forme de paires clé-valeur. Ceci est compatible avec NGSI-LD lors de l'utilisation de `options=keyValues` et renvoie les données de contexte d'une entité individuelle.  
 <details><summary><strong>show/hide example</strong></summary>    
 ```json  
@@ -655,7 +655,7 @@ I4SubmodelElementCapability:
 ```  
 </details>  
 I4SubmodelElementCapability Exemple normalisé NGSI-LD  
-Voici un exemple de I4SubmodelElementCapability au format JSON-LD tel que normalisé. Ceci est compatible avec NGSI-LD lorsqu'aucune option n'est utilisée et renvoie les données de contexte d'une entité individuelle.  
+Voici un exemple d'un I4SubmodelElementCapability au format JSON-LD tel que normalisé. Ceci est compatible avec NGSI-LD lorsqu'aucune option n'est utilisée et renvoie les données de contexte d'une entité individuelle.  
 <details><summary><strong>show/hide example</strong></summary>    
 ```json  
 {  
@@ -716,7 +716,7 @@ I4SubmodelElementCapability:
 <!-- 90-FooterNotes -->  
 <!-- /90-FooterNotes -->  
 <!-- 95-Units -->  
-Consultez [la FAQ 10](https://smartdatamodels.org/index.php/faqs/) pour savoir comment traiter les unités de grandeur.  
+Voir [FAQ 10](https://smartdatamodels.org/index.php/faqs/) pour obtenir une réponse sur la manière de gérer les unités de grandeur.  
 <!-- /95-Units -->  
 <!-- 97-LastFooter -->  
 ---  
