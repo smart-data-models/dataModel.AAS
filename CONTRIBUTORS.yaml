@@ -22,7 +22,14 @@ contributors:
   project: CoRoSect (https://corosect.eu/)
   comments: Implementation of an I4.0 AAS datamodels structure
   year: 2024
-- name: Lakshay 
+- name: Inga
+  surname: miadowicz
+  mail:
+  organization: UDeusches Zentrum für Luft-und Raumfahrt
+  project:
+  comments:
+  year: 2025
+- name: Lakshay
   surname: Mundeja
   mail: lmundeja@gmail.com
   organization: University of Applied Sciences Emden/Leer
