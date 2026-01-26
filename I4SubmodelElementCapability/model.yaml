@@ -1,40 +1,40 @@
 I4SubmodelElementCapability:
-  description: 'Based on IDTA-01001-3-0, describes a generic RAMI4.0 SubmodelElement representing an Capability of a referenced Asset Administration Shell'
+  description: Based on IDTA-01001-3-0, describes a generic RAMI4.0 SubmodelElement representing an Capability of a referenced Asset Administration Shell
   properties:
     address:
       description: The mailing address
       properties:
         addressCountry:
-          description: 'The country. For example, Spain'
+          description: The country. For example, Spain
           type: string
           x-ngsi:
             model: https://schema.org/addressCountry
             type: Property
         addressLocality:
-          description: 'The locality in which the street address is, and which is in the region'
+          description: The locality in which the street address is, and which is in the region
           type: string
           x-ngsi:
             model: https://schema.org/addressLocality
             type: Property
         addressRegion:
-          description: 'The region in which the locality is, and which is in the country'
+          description: The region in which the locality is, and which is in the country
           type: string
           x-ngsi:
             model: https://schema.org/addressRegion
             type: Property
         district:
-          description: 'A district is a type of administrative division that, in some countries, is managed by the local government'
+          description: A district is a type of administrative division that, in some countries, is managed by the local government
           type: string
           x-ngsi:
             type: Property
         postOfficeBoxNumber:
-          description: 'The post office box number for PO box addresses. For example, 03578'
+          description: The post office box number for PO box addresses. For example, 03578
           type: string
           x-ngsi:
             model: https://schema.org/postOfficeBoxNumber
             type: Property
         postalCode:
-          description: 'The postal code. For example, 24004'
+          description: The postal code. For example, 24004
           type: string
           x-ngsi:
             model: https://schema.org/https://schema.org/postalCode
@@ -119,7 +119,7 @@ I4SubmodelElementCapability:
         description: Object containing the elements of the data specification
         properties:
           type:
-            description: 'Link, url or description of the specified data. DataSpecification template conformant to IEC61360'
+            description: Link, url or description of the specified data. DataSpecification template conformant to IEC61360
             type: string
             x-ngsi:
               type: Property
@@ -152,12 +152,12 @@ I4SubmodelElementCapability:
       x-ngsi:
         type: Property
     kind:
-      description: 'For the distinction of ''type'' and ''instance'', the term ''kind'' is used'
+      description: For the distinction of 'type' and 'instance', the term 'kind' is used
       type: string
       x-ngsi:
         type: Property
     location:
-      description: 'Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon'
+      description: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon
       oneOf:
         - description: Geojson reference to the item. Point
           properties:
@@ -355,7 +355,7 @@ I4SubmodelElementCapability:
       x-ngsi:
         type: GeoProperty
     modelType:
-      description: 'For the distinction of ''type'' and ''instance'', the term ''kind'' is used'
+      description: For the distinction of 'type' and 'instance', the term 'kind' is used
       properties:
         name:
           description: Property of the item. Usually -Capability- is set for this type
@@ -420,7 +420,7 @@ I4SubmodelElementCapability:
       x-ngsi:
         type: Property
     semanticId:
-      description: 'It refers to an external information source, which explains the formulation of the submodel element'
+      description: It refers to an external information source, which explains the formulation of the submodel element
       properties:
         keys:
           description: Keys for the semantic id
@@ -457,7 +457,7 @@ I4SubmodelElementCapability:
       x-ngsi:
         type: Property
     source:
-      description: 'A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object'
+      description: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object
       type: string
       x-ngsi:
         type: Property
@@ -473,8 +473,8 @@ I4SubmodelElementCapability:
     - type
   type: object
   x-derived-from: https://industrialdigitaltwin.org/en/wp-content/uploads/sites/2/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf
-  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2023 Contributors to Smart Data Models Program'
+  x-disclaimer: Redistribution and use in source and binary forms...
   x-license-url: https://github.com/smart-data-models/dataModel.AAS/blob/master/I4SubmodelElementCapability/LICENSE.md
   x-model-schema: https://smart-data-models.github.io/dataModel.AAS/I4SubmodelElementCapability/schema.json
-  x-model-tags: ""
+  x-model-tags: ''
   x-version: 0.0.1
