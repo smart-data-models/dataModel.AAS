@@ -136,11 +136,9 @@
         },
         "value": {
           "type": [
-            "integer",
-            "string",
-            "number"
+            "string"
           ],
-          "description": "Property.The given value in string/integer format"
+          "description": "Property.The given value in string/integer format. Format only in String that can allocate any type"
         },
         "valueId": {
           "type": "string",
