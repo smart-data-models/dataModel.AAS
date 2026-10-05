@@ -1,0 +1,32 @@
+/* (Beta) Export of data model I4SubmodelElementProperty of the subject dataModel.AAS for a PostgreSQL database. Pending translation of enumerations and multityped attributes */
+CREATE TYPE I4SubmodelElementProperty_type AS ENUM ('I4SubmodelElementProperty');
+CREATE TABLE I4SubmodelElementProperty (
+  "address" JSON,
+  "alternateName" TEXT,
+  "areaServed" TEXT,
+  "category" TEXT,
+  "constraints" JSON,
+  "dataProvider" TEXT,
+  "dateCreated" TIMESTAMP,
+  "dateModified" TIMESTAMP,
+  "description" TEXT,
+  "descriptions" JSON,
+  "hasDataSpecification" JSON,
+  "id" TEXT PRIMARY KEY,
+  "idShort" TEXT,
+  "kind" TEXT,
+  "location" JSON,
+  "modelType" JSON,
+  "name" TEXT,
+  "owner" JSON,
+  "refI4AASId" TEXT,
+  "refI4AssetId" TEXT,
+  "refI4SubmodelId" TEXT,
+  "seeAlso" JSON,
+  "semanticId" JSON,
+  "source" TEXT,
+  "type" I4SubmodelElementProperty_type,
+  "value" JSON,
+  "valueId" TEXT,
+  "valueType" JSON
+);
