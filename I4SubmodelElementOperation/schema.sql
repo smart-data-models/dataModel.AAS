@@ -1,5 +1,5 @@
 /* (Beta) Export of data model I4SubmodelElementOperation of the subject dataModel.AAS for a PostgreSQL database. Pending translation of enumerations and multityped attributes */
-CREATE TYPE executionState_type AS ENUM ('canceled', 'completed', 'failed', 'initiated', 'running', 'timeout');
+CREATE TYPE I4SubmodelElementOperation_executionState_type AS ENUM ('canceled', 'completed', 'failed', 'initiated', 'running', 'timeout');
 CREATE TYPE I4SubmodelElementOperation_type AS ENUM ('I4SubmodelElementOperation');
 CREATE TABLE I4SubmodelElementOperation (
   "address" JSON,
@@ -11,7 +11,7 @@ CREATE TABLE I4SubmodelElementOperation (
   "dateModified" TIMESTAMP,
   "description" TEXT,
   "descriptions" JSON,
-  "executionState" executionState_type,
+  "executionState" I4SubmodelElementOperation_executionState_type,
   "hasDataSpecification" JSON,
   "id" TEXT PRIMARY KEY,
   "idShort" TEXT,
